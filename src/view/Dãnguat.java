@@ -16,6 +16,7 @@ public class Dãnguat extends javax.swing.JFrame {
     public Dãnguat() {
         initComponents();
         System.out.println("con cac");
+        System.out.println("bat dau lam");
     }
 
     /**
