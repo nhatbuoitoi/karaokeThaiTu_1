@@ -18,7 +18,7 @@ public class MainForm extends javax.swing.JFrame {
     public MainForm() {
         initComponents();
         showPanel(new TrangChu() );
-        
+        System.out.println("hello");
     }
     private void showPanel(JPanel panel) {
         mainPanel.removeAll();
