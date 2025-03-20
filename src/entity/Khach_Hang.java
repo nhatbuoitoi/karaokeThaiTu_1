@@ -16,7 +16,7 @@ public class Khach_Hang {
 	String DIA_CHI;
 	String SDT;
 	Date NGAY_SINH;
-        boolean GIOI_TINH;
+        boolean GIOI_TINH;;
 
     public Khach_Hang() {
     }

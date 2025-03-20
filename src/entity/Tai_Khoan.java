@@ -15,7 +15,7 @@ public class Tai_Khoan {
 	String MAT_KHAU;
 	String HO_TEN;
 	Date NAM_SINH;
-	String EMAIL;
+	String EMAIL;;
 	String SDT;
 	boolean VAI_TRO;
 

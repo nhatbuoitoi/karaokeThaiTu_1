@@ -17,7 +17,7 @@ public class Hoa_Don {
 	int MA_KHUYEN_MAI;
 	int MA_TAI_KHOAN;
 	double TONG_TIEN;
-	Date NGAY_TAO;
+	Date NGAY_TAO;;
 
     public Hoa_Don() {
     }

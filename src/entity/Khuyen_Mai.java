@@ -15,7 +15,7 @@ public class Khuyen_Mai {
 	String TEN_KHUYEN_MAI;
 	boolean TRANG_THAI;
 	Date NGAY_BAT_DAU;
-	Date NGAY_HET_HAN;
+	Date NGAY_HET_HAN;;
 	int SO_LUOT_DUNG;
 	String MIEU_TA;
 
