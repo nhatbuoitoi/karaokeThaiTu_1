@@ -333,7 +333,7 @@
                       <Component id="btnDatPhong" alignment="1" min="-2" pref="176" max="-2" attributes="0"/>
                       <Component id="jButton4" alignment="1" min="-2" pref="176" max="-2" attributes="0"/>
                       <Component id="jButton5" alignment="1" min="-2" pref="176" max="-2" attributes="0"/>
-                      <Component id="jButton6" alignment="1" min="-2" pref="176" max="-2" attributes="0"/>
+                      <Component id="btnTraPhong" alignment="1" min="-2" pref="176" max="-2" attributes="0"/>
                       <Component id="jButton7" alignment="1" min="-2" pref="176" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -350,7 +350,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButton5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton6" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="btnTraPhong" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButton7" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -383,12 +383,12 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton6">
+        <Component class="javax.swing.JButton" name="btnTraPhong">
           <Properties>
             <Property name="text" type="java.lang.String" value="TR&#x1ea2; PH&#xd2;NG"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTraPhongActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton7">
