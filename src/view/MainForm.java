@@ -18,12 +18,12 @@ public class MainForm extends javax.swing.JFrame {
     public MainForm() {
         initComponents();
         showPanel(new TrangChu() );
-        System.out.println("hello");
+
     }
     private void showPanel(JPanel panel) {
         mainPanel.removeAll();
         mainPanel.add(panel);
-        mainPanel.validate();
+        mainPanel.validate(); 
     }
 
     /**
@@ -162,7 +162,7 @@ public class MainForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTaiKhoanNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaiKhoanNhanVienActionPerformed
-        // TODO add your handling code here:
+        showPanel(new QuanLyNhanVienJPanel());
     }//GEN-LAST:event_btnTaiKhoanNhanVienActionPerformed
 
     private void btnTrangChuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrangChuActionPerformed
@@ -234,4 +234,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
+
+    
 }

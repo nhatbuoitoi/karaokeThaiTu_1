@@ -35,11 +35,9 @@
                   <Component id="jPanel7" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel5" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jPanel3" max="32767" attributes="0"/>
-              </Group>
+              <Component id="jPanel3" max="32767" attributes="0"/>
           </Group>
+          <Component id="jPanel5" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -334,7 +332,7 @@
                       <Component id="jButton4" alignment="1" min="-2" pref="176" max="-2" attributes="0"/>
                       <Component id="jButton5" alignment="1" min="-2" pref="176" max="-2" attributes="0"/>
                       <Component id="btnTraPhong" alignment="1" min="-2" pref="176" max="-2" attributes="0"/>
-                      <Component id="jButton7" alignment="1" min="-2" pref="176" max="-2" attributes="0"/>
+                      <Component id="btnDichVu" alignment="1" min="-2" pref="176" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -352,7 +350,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnTraPhong" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton7" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="btnDichVu" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -391,10 +389,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTraPhongActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton7">
+        <Component class="javax.swing.JButton" name="btnDichVu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="C&#x1eac;P NH&#x1eac;T D&#x1eca;CH V&#x1ee4;"/>
+            <Property name="text" type="java.lang.String" value="D&#x1eca;CH V&#x1ee4;"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDichVuActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
