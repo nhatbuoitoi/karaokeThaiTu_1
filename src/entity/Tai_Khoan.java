@@ -4,6 +4,8 @@
  */
 package entity;
 
+import java.util.Date;
+
 /**
  *
  * @author admin
@@ -12,7 +14,7 @@ public class Tai_Khoan {
         int MA_TAI_KHOAN;
 	String MAT_KHAU;
 	String HO_TEN;
-	String NAM_SINH;
+	Date NAM_SINH;
 	String EMAIL;
 	String SDT;
 	boolean VAI_TRO;
@@ -20,7 +22,7 @@ public class Tai_Khoan {
     public Tai_Khoan() {
     }
 
-    public Tai_Khoan(int MA_TAI_KHOAN, String MAT_KHAU, String HO_TEN, String NAM_SINH, String EMAIL, String SDT, boolean VAI_TRO) {
+    public Tai_Khoan(int MA_TAI_KHOAN, String MAT_KHAU, String HO_TEN, Date NAM_SINH, String EMAIL, String SDT, boolean VAI_TRO) {
         this.MA_TAI_KHOAN = MA_TAI_KHOAN;
         this.MAT_KHAU = MAT_KHAU;
         this.HO_TEN = HO_TEN;
@@ -54,11 +56,11 @@ public class Tai_Khoan {
         this.HO_TEN = HO_TEN;
     }
 
-    public String getNAM_SINH() {
+    public Date getNAM_SINH() {
         return NAM_SINH;
     }
 
-    public void setNAM_SINH(String NAM_SINH) {
+    public void setNAM_SINH(Date NAM_SINH) {
         this.NAM_SINH = NAM_SINH;
     }
 

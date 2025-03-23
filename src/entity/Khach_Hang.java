@@ -4,6 +4,8 @@
  */
 package entity;
 
+import java.util.Date;
+
 /**
  *
  * @author admin
@@ -13,13 +15,13 @@ public class Khach_Hang {
 	String TEN_KHACH_HANG;
 	String DIA_CHI;
 	String SDT;
-	String NGAY_SINH;
+	Date NGAY_SINH;
         boolean GIOI_TINH;
 
     public Khach_Hang() {
     }
 
-    public Khach_Hang(int MA_KHACH_HANG, String TEN_KHACH_HANG, String DIA_CHI, String SDT, String NGAY_SINH, boolean GIOI_TINH) {
+    public Khach_Hang(int MA_KHACH_HANG, String TEN_KHACH_HANG, String DIA_CHI, String SDT, Date NGAY_SINH, boolean GIOI_TINH) {
         this.MA_KHACH_HANG = MA_KHACH_HANG;
         this.TEN_KHACH_HANG = TEN_KHACH_HANG;
         this.DIA_CHI = DIA_CHI;
@@ -60,11 +62,11 @@ public class Khach_Hang {
         this.SDT = SDT;
     }
 
-    public String getNGAY_SINH() {
+    public Date getNGAY_SINH() {
         return NGAY_SINH;
     }
 
-    public void setNGAY_SINH(String NGAY_SINH) {
+    public void setNGAY_SINH(Date NGAY_SINH) {
         this.NGAY_SINH = NGAY_SINH;
     }
 

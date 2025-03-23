@@ -11,7 +11,7 @@ package entity;
 public class Loai_Phong {
         int MA_LOAI_PHONG;
 	String TEN_LOAI_PHONG;
-	int GIA_TIEN;
+	int GIA_TIEN;;
 
     public Loai_Phong(int MA_LOAI_PHONG, String TEN_LOAI_PHONG, int GIA_TIEN) {
         this.MA_LOAI_PHONG = MA_LOAI_PHONG;
