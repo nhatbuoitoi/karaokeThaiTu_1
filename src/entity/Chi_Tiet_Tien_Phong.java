@@ -9,7 +9,7 @@ package entity;
  * @author admin
  */
 public class Chi_Tiet_Tien_Phong {
-        int MA_CHI_TIET_TIEN_PHONG;
+        int MA_CHI_TIET_TIEN_PHONG;;
 	int MA_HOA_DON;
 	int MA_PHONG_HAT;
 	String THOI_GIAN_NHAN_PHONG;

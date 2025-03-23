@@ -9,7 +9,7 @@ package entity;
  * @author admin
  */
 public class Danh_Muc {
-        int MA_DANH_MUC;
+        int MA_DANH_MUC;;
 	String TEN_DANH_MUC;
 
     public Danh_Muc() {

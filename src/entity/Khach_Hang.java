@@ -11,7 +11,7 @@ import java.util.Date;
  * @author admin
  */
 public class Khach_Hang {
-        int MA_KHACH_HANG;
+        int MA_KHACH_HANG;;
 	String TEN_KHACH_HANG;
 	String DIA_CHI;
 	String SDT;

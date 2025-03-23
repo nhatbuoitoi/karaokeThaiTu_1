@@ -11,7 +11,7 @@ import java.util.Date;
  * @author admin
  */
 public class Hoa_Don {
-        int MA_HOA_DON;
+        int MA_HOA_DON;;
 	int MA_KHACH_HANG;
 	boolean TRANG_THAI_THANH_TOAN;
 	int MA_KHUYEN_MAI;

@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class Tai_Khoan {
         int MA_TAI_KHOAN;
-	String MAT_KHAU;
+	String MAT_KHAU;;
 	String HO_TEN;
 	Date NAM_SINH;
 	String EMAIL;;

@@ -11,7 +11,7 @@ import java.util.Date;
  * @author admin
  */
 public class Khuyen_Mai {
-        int MA_KHUYEN_MAI;
+        int MA_KHUYEN_MAI;;
 	String TEN_KHUYEN_MAI;
 	boolean TRANG_THAI;
 	Date NGAY_BAT_DAU;

@@ -9,8 +9,8 @@ package entity;
  * @author admin
  */
 public class Phong_Hat {
-        int MA_PHONG_HAT;
-	String TEN_PHONG_HAT;
+        int MA_PHONG_HAT;;
+	String TEN_PHONG_HAT;;
 	int SO_NGUOI;
 	int MA_LOAI_PHONG;
 	boolean TRANG_THAI;

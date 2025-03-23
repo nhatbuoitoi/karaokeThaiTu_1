@@ -9,7 +9,7 @@ package entity;
  * @author admin
  */
 public class Dich_Vu {
-        int MA_DICH_VU;
+        int MA_DICH_VU;;
 	String TEN_DICH_VU;
 	double GIA;
 	String MIEU_TA;
