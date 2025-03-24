@@ -150,6 +150,7 @@ public class MainForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTaiKhoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaiKhoanActionPerformed
+        showPanel(new QuanLyNhanVienJPanel());
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTaiKhoanActionPerformed
 
