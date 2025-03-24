@@ -71,9 +71,9 @@ public class QuanLyDichVu extends javax.swing.JPanel {
 
         jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        jTextField5 = new javax.swing.JTextField();
+        txtTimDV = new javax.swing.JTextField();
         txtmaDichVu = new javax.swing.JTextField();
-        txtTimDV = new javax.swing.JButton();
+        lon = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         txtdonGia = new javax.swing.JTextField();
@@ -110,17 +110,16 @@ public class QuanLyDichVu extends javax.swing.JPanel {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255), 5));
 
-        jTextField5.setText("Nhập Mã Dịch Vụ");
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-
-        txtTimDV.setText("Tìm");
         txtTimDV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTimDVActionPerformed(evt);
+            }
+        });
+
+        lon.setText("Tìm");
+        lon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lonActionPerformed(evt);
             }
         });
 
@@ -205,9 +204,9 @@ public class QuanLyDichVu extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtmieuTa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtTimDV)
+                                .addComponent(lon)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtTimDV, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -262,8 +261,8 @@ public class QuanLyDichVu extends javax.swing.JPanel {
                     .addComponent(jLabel11))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTimDV)
+                    .addComponent(txtTimDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lon)
                     .addComponent(jButton8)
                     .addComponent(jButton10))
                 .addGap(21, 21, 21))
@@ -428,9 +427,9 @@ public class QuanLyDichVu extends javax.swing.JPanel {
     txtmaDichVu.requestFocus();
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void txtTimDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimDVActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_txtTimDVActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         int ma_dich_vu = Integer.parseInt(txtmaDichVu.getText());
@@ -453,32 +452,35 @@ public class QuanLyDichVu extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void txtTimDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimDVActionPerformed
+    private void lonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lonActionPerformed
       DefaultTableModel model = (DefaultTableModel) tblDanhSach.getModel();
+       DichVuDAO dvDAO = new DichVuDAO();
         try {
-            DichVuDAO dvDAO = new DichVuDAO();
             int madichvu = Integer.parseInt(txtTimDV.getText()); // Lấy mã tài khoản từ JTextField
-            Dich_Vu dv = dvDAO.timDichVu(madichvu); // Gọi phương thức tìm kiếm
-
+            DichVuDanhMucDTO dvDTO = dvDAO.timDichVu(madichvu); // Gọi phương thức tìm kiếm
+          
             model.setRowCount(0); // Xóa tất cả các hàng trong bảng
 
-            if (dv != null) {
+            if (dvDTO != null) {
                 // Thêm tài khoản tìm thấy vào bảng
                 model.addRow(new Object[]{
-                dv.getMA_DICH_VU(),
-                dv.getTEN_DICH_VU(),
-                dv.getGIA(),
-                dv.getMIEU_TA(),
-                dv.getMA_DANH_MUC()
-                });
+                dvDTO.getMA_DICH_VU(),
+                dvDTO.getTEN_DICH_VU(),
+                dvDTO.getGIA(),
+                dvDTO.getMIEU_TA(),
+                dvDTO.getMA_DANH_MUC(),
+                dvDTO.getTEN_DANH_MUC() // <-- sửa dòng này
+});
+
             } else {
                 // Hiển thị thông báo không tìm thấy tài khoản
+                
                 JOptionPane.showMessageDialog(this, "Không tìm thấy tài khoản với mã: " + madichvu);
             }
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập mã tài khoản hợp lệ.");
         }
-    }//GEN-LAST:event_txtTimDVActionPerformed
+    }//GEN-LAST:event_lonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -498,9 +500,9 @@ public class QuanLyDichVu extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JButton lon;
     private javax.swing.JTable tblDanhSach;
-    private javax.swing.JButton txtTimDV;
+    private javax.swing.JTextField txtTimDV;
     private javax.swing.JTextField txtdonGia;
     private javax.swing.JTextField txtmaDichVu;
     private javax.swing.JTextField txtmieuTa;

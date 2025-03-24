@@ -99,9 +99,11 @@ public int updateDichVu(Dich_Vu dv) {
         return 0;
     }
 }
-public Dich_Vu timDichVu(int madv){
-        String sql = "Select * from DICH_VU where MA_DICH_VU = ?";
-        Dich_Vu dv = null;
+public DichVuDanhMucDTO timDichVu(int madv){
+        String sql = "SELECT * FROM DICH_VU " +
+                 "JOIN DANH_MUC ON DICH_VU.MA_DANH_MUC = DANH_MUC.MA_DANH_MUC " +
+                 "WHERE MA_DICH_VU = ?";;
+        DichVuDanhMucDTO dv = null;
         try (Connection con = KetNoiDB.getConnection();
          PreparedStatement ps = con.prepareStatement(sql)) {
         
@@ -110,15 +112,17 @@ public Dich_Vu timDichVu(int madv){
         ResultSet rs = ps.executeQuery();
 
         if (rs.next()) {
-            int ma_dich_vu = rs.getInt("MA_DICH_VU");
-                  String ten_dich_vu = rs.getString("TEN_DICH_VU");
-                  double gia = rs.getDouble("GIA");
-                  String mieu_ta = rs.getString("MIEU_TA");
-                  int ma_danh_muc = rs.getInt("MA_DANH_MUC");
-                  String ten_danh_muc = rs.getString("TEN_DANH_MUC");
-              Dich_Vu Dv = new Dich_Vu(ma_dich_vu, ten_dich_vu, gia, mieu_ta, ma_danh_muc);
-               
-        }
+    int ma_dich_vu = rs.getInt("MA_DICH_VU");
+    String ten_dich_vu = rs.getString("TEN_DICH_VU");
+    double gia = rs.getDouble("GIA");
+    String mieu_ta = rs.getString("MIEU_TA");
+    int ma_danh_muc = rs.getInt("MA_DANH_MUC");
+    String ten_danh_muc = rs.getString("TEN_DANH_MUC");
+
+    // Gán trực tiếp vào dv
+    dv = new DichVuDanhMucDTO(ma_dich_vu, ten_dich_vu, gia, mieu_ta, ma_danh_muc, ten_danh_muc);
+}
+
     } catch (SQLException e) {
         e.printStackTrace(); 
     }
