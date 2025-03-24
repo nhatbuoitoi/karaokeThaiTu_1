@@ -169,6 +169,7 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDichVuActionPerformed
 
     private void btnHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHoaDonActionPerformed
+        showPanel(new QuanLyHoaDonJPanel());
         // TODO add your handling code here:
     }//GEN-LAST:event_btnHoaDonActionPerformed
 
