@@ -24,6 +24,7 @@ public class PhongHat extends javax.swing.JPanel {
     public PhongHat() {
         initComponents();
         loadTable();
+        initCboTrangThai();
 
     
     }
@@ -34,13 +35,21 @@ public class PhongHat extends javax.swing.JPanel {
         DefaultTableModel tblPhongHat = (DefaultTableModel) this.tblPhongHat.getModel();
         tblPhongHat.setRowCount(0);
         for(PhongHatDTO phongHatDTO : phongHatLst){
+            String trangThaiText = phongHatDTO.isTRANG_THAI() ? "Đang sử dụng" : "Trống";
             tblPhongHat.addRow(new Object[]{
                 phongHatDTO.getMA_PHONG_HAT(),
                 phongHatDTO.getTEN_LOAI_PHONG(),
                 phongHatDTO.getTEN_PHONG_HAT(),
-                phongHatDTO.isTRANG_THAI()
+                trangThaiText
             });
         }
+    }
+    
+    
+    private void initCboTrangThai(){
+        cboTrangThai.removeAllItems();
+        cboTrangThai.addItem("Trống");
+        cboTrangThai.addItem("Đang sử dụng");
     }
     
     
@@ -66,8 +75,8 @@ public class PhongHat extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         txtTenPhongHat = new javax.swing.JLabel();
-        txtMaLoaiPhong = new javax.swing.JLabel();
-        txtMaPhongHat = new javax.swing.JLabel();
+        txtTenLoaiPhong = new javax.swing.JLabel();
+        txtMaPhongHat = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -124,12 +133,6 @@ public class PhongHat extends javax.swing.JPanel {
 
         jButton2.setText("Làm Mới");
 
-        txtTenPhongHat.setText("jLabel9");
-
-        txtMaLoaiPhong.setText("jLabel9");
-
-        txtMaPhongHat.setText("jLabel9");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -139,12 +142,12 @@ public class PhongHat extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtTenPhongHat, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtMaLoaiPhong)))
+                        .addComponent(txtTenLoaiPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -152,7 +155,7 @@ public class PhongHat extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cboTrangThai, 0, 160, Short.MAX_VALUE)
-                    .addComponent(txtMaPhongHat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtMaPhongHat))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
@@ -167,16 +170,16 @@ public class PhongHat extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(jLabel4)
                     .addComponent(jButton1)
-                    .addComponent(txtTenPhongHat)
-                    .addComponent(txtMaPhongHat))
+                    .addComponent(txtTenPhongHat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtMaPhongHat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel5)
                     .addComponent(cboTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2)
-                    .addComponent(txtMaLoaiPhong))
-                .addContainerGap(11, Short.MAX_VALUE))
+                    .addComponent(txtTenLoaiPhong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(11, 11, 11))
         );
 
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 5, true));
@@ -348,13 +351,20 @@ public class PhongHat extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDichVuActionPerformed
 
     private void tblPhongHatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPhongHatMouseClicked
-        int soDongChon = tblPhongHat.getSelectedRow();
-        String so0 = tblPhongHat.getValueAt(soDongChon, 0).toString();
-        String so1 = tblPhongHat.getValueAt(soDongChon, 1).toString();
-        String so2 = tblPhongHat.getValueAt(soDongChon, 2).toString();
-        String so3 = tblPhongHat.getValueAt(soDongChon, 3).toString();
+        int selectedRow = tblPhongHat.getSelectedRow();
+        if (selectedRow != -1) { 
+        txtMaPhongHat.setText(tblPhongHat.getValueAt(selectedRow, 0).toString());
+        txtTenLoaiPhong.setText(tblPhongHat.getValueAt(selectedRow, 1).toString());
+        txtTenPhongHat.setText(tblPhongHat.getValueAt(selectedRow, 2).toString());
+
         
-        
+        String trangThaiText = tblPhongHat.getValueAt(selectedRow, 3).toString();
+        if (trangThaiText.equals("Đang sử dụng")) {
+            cboTrangThai.setSelectedItem("Đang sử dụng");
+        } else {
+            cboTrangThai.setSelectedItem("Trống");
+        }
+    }
     }//GEN-LAST:event_tblPhongHatMouseClicked
 
 
@@ -381,8 +391,8 @@ public class PhongHat extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblPhongHat;
-    private javax.swing.JLabel txtMaLoaiPhong;
-    private javax.swing.JLabel txtMaPhongHat;
+    private javax.swing.JTextField txtMaPhongHat;
+    private javax.swing.JLabel txtTenLoaiPhong;
     private javax.swing.JLabel txtTenPhongHat;
     // End of variables declaration//GEN-END:variables
 }
