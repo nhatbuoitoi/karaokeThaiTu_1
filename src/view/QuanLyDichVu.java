@@ -475,10 +475,10 @@ public class QuanLyDichVu extends javax.swing.JPanel {
             } else {
                 // Hiển thị thông báo không tìm thấy tài khoản
                 
-                JOptionPane.showMessageDialog(this, "Không tìm thấy tài khoản với mã: " + madichvu);
+                JOptionPane.showMessageDialog(this, "Không tìm thấy dịch vụ với mã: " + madichvu);
             }
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Vui lòng nhập mã tài khoản hợp lệ.");
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập mã dịch vụ hợp lệ.");
         }
     }//GEN-LAST:event_lonActionPerformed
 
