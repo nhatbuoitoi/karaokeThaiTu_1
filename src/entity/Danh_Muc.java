@@ -12,7 +12,7 @@ package entity;
 public class Danh_Muc {
         int MA_DANH_MUC;
 	String TEN_DANH_MUC;
-
+s
     public Danh_Muc() {
     }
 
