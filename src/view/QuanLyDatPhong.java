@@ -54,14 +54,14 @@ public class QuanLyDatPhong extends javax.swing.JPanel {
         jTextField1.setFont(new java.awt.Font("Arial", 3, 36)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(0, 0, 0));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("Quản Lý Phiếu Đặt Phòng");
+        jTextField1.setText("Xem Phòng Đang sử Dụng");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Mã phiếu");
+        jLabel1.setText("Mã Phòng");
 
         jLabel2.setText("Thời gian đặt");
 
@@ -117,7 +117,7 @@ public class QuanLyDatPhong extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã phiếu", "Tên khách hàng", "Số điện thoại", "Phòng", "Thời gian đặt", "Thời gian nhật", "Tên nhân viên", "Trạng thái phiếu"
+                "Mã phòng", "Tên khách hàng", "Số điện thoại", "Phòng", "Thời gian đặt", "Thời gian nhật", "Tên nhân viên", "Trạng thái phiếu"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
