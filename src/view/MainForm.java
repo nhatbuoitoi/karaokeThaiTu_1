@@ -12,12 +12,14 @@ import javax.swing.JPanel;
  */
 public class MainForm extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form MainForm
      */
     public MainForm() {
         initComponents();
         showPanel(new TrangChu() );
+        
 
     }
     private void showPanel(JPanel panel) {
