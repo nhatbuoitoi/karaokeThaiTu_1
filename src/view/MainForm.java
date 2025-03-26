@@ -22,21 +22,16 @@ public class MainForm extends javax.swing.JFrame {
      */
     public MainForm() {
         initComponents();
-        showPanel(new TrangChu() );
+        showPanel(new TrangChu());
         init();
     }
+
     private void showPanel(JPanel panel) {
         mainPanel.removeAll();
         mainPanel.add(panel);
         mainPanel.validate();
     }
 
-    
-    
-    
-    
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -138,8 +133,8 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnDangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnKhachHang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -161,6 +156,8 @@ public class MainForm extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
+                .addGap(2, 2, 2)
+                .addComponent(btnTrangChu, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnTrangChu, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -177,69 +174,76 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(btnThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(btnDangXuat))
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 630));
-
-        mainPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 255, 255)));
-        mainPanel.setLayout(new java.awt.BorderLayout());
-        getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 720, 630));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnTrangChuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrangChuActionPerformed
+    private void btnTrangChuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnTrangChuActionPerformed
         // TODO add your handling code here:
-        showPanel(new TrangChu() );
-    }//GEN-LAST:event_btnTrangChuActionPerformed
+        showPanel(new TrangChu());
+    }// GEN-LAST:event_btnTrangChuActionPerformed
 
-    private void btnPhongHatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhongHatActionPerformed
+    private void btnPhongHatActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnPhongHatActionPerformed
         // TODO add your handling code here:
         showPanel(new PhongHat());
-    }//GEN-LAST:event_btnPhongHatActionPerformed
+    }// GEN-LAST:event_btnPhongHatActionPerformed
 
-    private void btnDichVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDichVuActionPerformed
+    private void btnDichVuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnDichVuActionPerformed
+        if (!GlobalState.VAI_TRO) {
+            JOptionPane.showMessageDialog(this, "Bạn Không Có Quyền Truy Cập Chức Năng Này");
+            return;
+        }
         showPanel(new QuanLyDichVu());
-    }//GEN-LAST:event_btnDichVuActionPerformed
+    }// GEN-LAST:event_btnDichVuActionPerformed
 
-    private void btnHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHoaDonActionPerformed
+    private void btnHoaDonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnHoaDonActionPerformed
         showPanel(new QuanLyHoaDonJPanel());
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnHoaDonActionPerformed
+    }// GEN-LAST:event_btnHoaDonActionPerformed
 
-    private void btnThongKeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThongKeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnThongKeActionPerformed
+    private void btnThongKeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnThongKeActionPerformed
+        if (!GlobalState.VAI_TRO) {
+            JOptionPane.showMessageDialog(this, "Bạn Không Có Quyền Truy Cập Chức Năng Này");
+            return;
+        }
+    }// GEN-LAST:event_btnThongKeActionPerformed
 
-    private void btnKhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKhachHangActionPerformed
+    private void btnKhachHangActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnKhachHangActionPerformed
         showPanel(new QuanLyKhachHangJPanel());
-    }//GEN-LAST:event_btnKhachHangActionPerformed
+    }// GEN-LAST:event_btnKhachHangActionPerformed
 
-    private void btnNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNhanVienActionPerformed
+    private void btnNhanVienActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnNhanVienActionPerformed
+        if (!GlobalState.VAI_TRO) {
+            JOptionPane.showMessageDialog(this, "Bạn Không Có Quyền Truy Cập Chức Năng Này");
+            return;
+        }
         showPanel(new QuanLyNhanVienJPanel());
-    }//GEN-LAST:event_btnNhanVienActionPerformed
+    }// GEN-LAST:event_btnNhanVienActionPerformed
 
-    private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
-        int confirm = JOptionPane.showConfirmDialog(this,"Bạn có muốn đăng xuất không?",
+    private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnDangXuatActionPerformed
+        int confirm = JOptionPane.showConfirmDialog(this, "Bạn có muốn đăng xuất không?",
                 "Đăng Xuất",
                 JOptionPane.YES_NO_OPTION);
-        if(confirm == JOptionPane.YES_NO_OPTION){
+        if (confirm == JOptionPane.YES_NO_OPTION) {
             GlobalState.MA_TAI_KHOAN = null;
             GlobalState.VAI_TRO = false;
             this.dispose();
             new DangNhapForm().setVisible(true);
-
         }
-    }//GEN-LAST:event_btnDangXuatActionPerformed
+    }// GEN-LAST:event_btnDangXuatActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
+        // (optional) ">
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
+         * look and feel.
+         * For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -257,12 +261,15 @@ public class MainForm extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
+        // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainForm().setVisible(true);
+                ChaoJFrame chao = new ChaoJFrame();
+                chao.setVisible(true);
+                // DangNhapForm dangNhapForm = new DangNhapForm();
+                // dangNhapForm.setVisible(true);
             }
         });
     }
@@ -282,23 +289,24 @@ public class MainForm extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private javax.swing.JProgressBar pgbLoading;
+
     private void init() {
         this.setLocationRelativeTo(null);
         new ChaoJFrame().setVisible(true);
         new DangNhapForm().setVisible(true);
-//        new Timer(10, new ActionListener() {
-////    @Override
-//    public void actionPerformed(ActionEvent e) {
-//        int value = pgbLoading.getValue();
-//        if (value < 100) {
-//            value += 1;
-//            pgbLoading.setValue(value);
-//        } else {
-//            ((Timer) e.getSource()).stop(); // Dừng Timer
-//            ChaoJFrame.this.dispose();    // Đóng màn hình hiện tại
-//            // Thêm logic để mở màn hình tiếp theo (nếu cần)
-//        }
-//    }
-//}).start();
+        // new Timer(10, new ActionListener() {
+        ////    @Override
+        // public void actionPerformed(ActionEvent e) {
+        // int value = pgbLoading.getValue();
+        // if (value < 100) {
+        // value += 1;
+        // pgbLoading.setValue(value);
+        // } else {
+        // ((Timer) e.getSource()).stop(); // Dừng Timer
+        // ChaoJFrame.this.dispose(); // Đóng màn hình hiện tại
+        // // Thêm logic để mở màn hình tiếp theo (nếu cần)
+        // }
+        // }
+        // }).start();
     }
 }

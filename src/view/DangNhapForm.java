@@ -122,8 +122,8 @@ public class DangNhapForm extends javax.swing.JFrame {
        if (ketQua) {
             System.out.println("Mã Tài Khoản: "+ GlobalState.MA_TAI_KHOAN);
             System.out.println("Vai Trò: "+ GlobalState.VAI_TRO);
-            DangNhapForm.this.dispose();
-            
+            this.dispose();
+            new MainForm().setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Sai tài khoản hoặc mật khẩu!", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }    
@@ -159,7 +159,14 @@ public class DangNhapForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DangNhapForm().setVisible(true);
+                DangNhapForm dangNhapForm = new DangNhapForm();
+                dangNhapForm.addWindowListener(new java.awt.event.WindowAdapter(){
+                @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+            });
+                dangNhapForm.setVisible(true);
             }
         });
     }
