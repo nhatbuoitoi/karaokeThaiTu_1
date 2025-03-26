@@ -21,11 +21,10 @@ public class ChaoJFrame extends javax.swing.JFrame {
         init();
     }
     
-//    public ChaoJFrame(MainForm aThis, boolean par) {
-//    initComponents();
-//    init();
-//    setLocationRelativeTo(null); // Căn giữa màn hình
-//    }
+    public ChaoJFrame(MainForm aThis, boolean par) {
+        initComponents();
+        init();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -116,7 +115,8 @@ public class ChaoJFrame extends javax.swing.JFrame {
         } else {
             ((Timer) e.getSource()).stop(); // Dừng Timer
             ChaoJFrame.this.dispose();    // Đóng màn hình hiện tại
-            // Thêm logic để mở màn hình tiếp theo (nếu cần)
+            // Thêm logic để mở màn hình tiếp theo (nếu cần
+            new DangNhapForm().setVisible(true);
         }
     }
 }).start();
