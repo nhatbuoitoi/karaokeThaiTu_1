@@ -5,6 +5,7 @@
 package dao;
 
 import db.KetNoiDB;
+import dto.PhongHatDTO;
 import entity.Phong_Hat;
 import entity.Loai_Phong;
 import dto.PhongHatDTO;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class PhongHatDAO {
     public List<PhongHatDTO> readPhongHat(){
@@ -39,7 +41,36 @@ public class PhongHatDAO {
             return phongHatDtoLst;
         }
     }
-    
+    public PhongHatDTO timPhongHat(int maPhongHat){
+        String sql = "SELECT * FROM PHONG_HAT " +
+                 "JOIN LOAI_PHONG ON PHONG_HAT.MA_LOAI_PHONG = LOAI_PHONG.MA_LOAI_PHONG " +
+                 "WHERE MA_PHONG_HAT = ?";;
+        PhongHatDTO PhongHat = null;
+        try (Connection con = KetNoiDB.getConnection();
+         PreparedStatement ps = con.prepareStatement(sql)) {
+        
+        ps.setInt(1, maPhongHat); 
+
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            int MA_LOAI_PHONG = rs.getInt("MA_LOAI_PHONG");
+            String TEN_LOAI_PHONG= rs.getString("TEN_LOAI_PHONG");
+            int GIA_TIEN = rs.getInt("GIA_TIEN");
+            int MA_PHONG_HAT = rs.getInt("MA_PHONG_HAT");
+            String TEN_PHONG_HAT = rs.getString("TEN_PHONG_HAT");
+            int SO_NGUOI = rs.getInt("SO_NGUOI");
+            boolean TRANG_THAI = rs.getBoolean("TRANG_THAI");
+
+    // Gán trực tiếp vào dv
+    PhongHat = new PhongHatDTO(MA_LOAI_PHONG, TEN_LOAI_PHONG, GIA_TIEN, MA_PHONG_HAT, TEN_PHONG_HAT, SO_NGUOI, TRANG_THAI);
+}
+
+    } catch (SQLException e) {
+        e.printStackTrace(); 
+    }
+    return PhongHat;
+    }
 
 }
 
