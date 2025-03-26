@@ -73,15 +73,15 @@ public class QuanLyDichVu extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         txtTimDV = new javax.swing.JTextField();
         txtmaDichVu = new javax.swing.JTextField();
-        lon = new javax.swing.JButton();
+        btnTim = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        btnThem = new javax.swing.JButton();
         txtdonGia = new javax.swing.JTextField();
-        jButton8 = new javax.swing.JButton();
+        btnSua = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        btnLamMoi = new javax.swing.JButton();
+        btnXoa = new javax.swing.JButton();
         txttenDichVu = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -99,7 +99,6 @@ public class QuanLyDichVu extends javax.swing.JPanel {
 
         jTextField1.setBackground(new java.awt.Color(0, 255, 255));
         jTextField1.setFont(new java.awt.Font("Arial", 3, 36)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Quản Lý Dịch Vụ");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -116,27 +115,27 @@ public class QuanLyDichVu extends javax.swing.JPanel {
             }
         });
 
-        lon.setText("Tìm");
-        lon.addActionListener(new java.awt.event.ActionListener() {
+        btnTim.setText("Tìm");
+        btnTim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lonActionPerformed(evt);
+                btnTimActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel4.setText("Mã Dịch Vụ");
 
-        jButton7.setText("Thêm Dịch Vụ");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnThem.setText("Thêm Dịch Vụ");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnThemActionPerformed(evt);
             }
         });
 
-        jButton8.setText("Cập Nhật Thông Tin");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnSua.setText("Cập Nhật Thông Tin");
+        btnSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnSuaActionPerformed(evt);
             }
         });
 
@@ -146,17 +145,17 @@ public class QuanLyDichVu extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel7.setText("Đơn Giá");
 
-        jButton9.setText("Làm Mới");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        btnLamMoi.setText("Làm Mới");
+        btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                btnLamMoiActionPerformed(evt);
             }
         });
 
-        jButton10.setText("Xóa");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        btnXoa.setText("Xóa");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                btnXoaActionPerformed(evt);
             }
         });
 
@@ -192,10 +191,11 @@ public class QuanLyDichVu extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel6))
+                        .addComponent(jLabel6)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -204,7 +204,7 @@ public class QuanLyDichVu extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtmieuTa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(lon)
+                                .addComponent(btnTim)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtTimDV, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -215,26 +215,25 @@ public class QuanLyDichVu extends javax.swing.JPanel {
                                 .addComponent(jLabel4)
                                 .addGap(30, 30, 30)
                                 .addComponent(txtmaDichVu, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(58, 58, 58)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel8)
                                 .addGap(27, 27, 27)
                                 .addComponent(txttenDichVu, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton8)
+                                .addComponent(btnSua)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cbomadanhMuc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,15 +255,15 @@ public class QuanLyDichVu extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtmieuTa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7)
-                    .addComponent(jButton9)
+                    .addComponent(btnThem)
+                    .addComponent(btnLamMoi)
                     .addComponent(jLabel11))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTimDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lon)
-                    .addComponent(jButton8)
-                    .addComponent(jButton10))
+                    .addComponent(btnTim)
+                    .addComponent(btnSua)
+                    .addComponent(btnXoa))
                 .addGap(21, 21, 21))
         );
 
@@ -347,7 +346,7 @@ public class QuanLyDichVu extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtmieuTaActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
        String maDichVu = txtmaDichVu.getText();
         
         DichVuDAO DvDAO = new DichVuDAO();
@@ -371,7 +370,7 @@ public class QuanLyDichVu extends javax.swing.JPanel {
         }else{
             JOptionPane.showMessageDialog(this, "Thất Bại");
         }
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_btnXoaActionPerformed
 
     private void cbomadanhMucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbomadanhMucActionPerformed
         // TODO add your handling code here:
@@ -393,7 +392,7 @@ public class QuanLyDichVu extends javax.swing.JPanel {
         cbomadanhMuc.setSelectedItem(so4);
     }//GEN-LAST:event_tblDanhSachMouseClicked
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         
         
         int ma_dich_vu = Integer.parseInt(txtmaDichVu.getText());
@@ -414,10 +413,11 @@ public class QuanLyDichVu extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(this, "Thất Bại");
         }
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btnThemActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-    txtmaDichVu.setText("");
+    private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
+
+        txtmaDichVu.setText("");
     txttenDichVu.setText("");
     txtdonGia.setText("");
     txtmieuTa.setText("");
@@ -425,13 +425,14 @@ public class QuanLyDichVu extends javax.swing.JPanel {
         cbomadanhMuc.setSelectedIndex(0);
     }
     txtmaDichVu.requestFocus();
-    }//GEN-LAST:event_jButton9ActionPerformed
+    loadTable();
+    }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void txtTimDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimDVActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTimDVActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         int ma_dich_vu = Integer.parseInt(txtmaDichVu.getText());
         String ten_dich_vu = txttenDichVu.getText();
         double gia = Double.parseDouble(txtdonGia.getText());
@@ -450,9 +451,9 @@ public class QuanLyDichVu extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Thất Bại");
         }
 
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_btnSuaActionPerformed
 
-    private void lonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lonActionPerformed
+    private void btnTimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimActionPerformed
       DefaultTableModel model = (DefaultTableModel) tblDanhSach.getModel();
        DichVuDAO dvDAO = new DichVuDAO();
         try {
@@ -480,15 +481,16 @@ public class QuanLyDichVu extends javax.swing.JPanel {
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập mã dịch vụ hợp lệ.");
         }
-    }//GEN-LAST:event_lonActionPerformed
+    }//GEN-LAST:event_btnTimActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLamMoi;
+    private javax.swing.JButton btnSua;
+    private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnTim;
+    private javax.swing.JButton btnXoa;
     private javax.swing.JComboBox<String> cbomadanhMuc;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel4;
@@ -500,7 +502,6 @@ public class QuanLyDichVu extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JButton lon;
     private javax.swing.JTable tblDanhSach;
     private javax.swing.JTextField txtTimDV;
     private javax.swing.JTextField txtdonGia;
