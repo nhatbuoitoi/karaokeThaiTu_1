@@ -20,6 +20,7 @@ public class DangNhapForm extends javax.swing.JFrame {
     public DangNhapForm() {
         initComponents();
         this.setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE);
+        init();
     }
 
     /**
@@ -172,4 +173,8 @@ public class DangNhapForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtDangNhap;
     private javax.swing.JPasswordField txtMatKhau;
     // End of variables declaration//GEN-END:variables
+
+    private void init() {
+        this.setLocationRelativeTo(null);
+    }
 }

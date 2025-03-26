@@ -107,7 +107,7 @@ public class ChaoJFrame extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         //chạy thanh loading đến 100% sẽ mở màn hình đăng nhập
        new Timer(10, new ActionListener() {
-    @Override
+//    @Override
     public void actionPerformed(ActionEvent e) {
         int value = pgbLoading.getValue();
         if (value < 100) {
