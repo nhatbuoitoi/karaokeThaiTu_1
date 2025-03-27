@@ -6,11 +6,6 @@ package dao;
 import entity.Dich_Vu;
 import entity.Danh_Muc;
 import dto.DichVuDanhMucDTO;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 import db.KetNoiDB;
@@ -66,7 +61,7 @@ public class DichVuDAO {
             return 0;
         }
     }
- public int deleteDichVu(String maDichVu){ //xóa dữ liệu
+ public int deleteDichVu(String maDichVu){ 
         String sql = "DELETE FROM DICH_VU WHERE MA_DICH_VU = (?)";
                 try (Connection con = KetNoiDB.getConnection();
              PreparedStatement ps = con.prepareStatement(sql);){
