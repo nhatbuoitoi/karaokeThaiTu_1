@@ -148,18 +148,16 @@ public class MainForm extends javax.swing.JFrame {
                                     .addComponent(btnDichVu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(29, 29, 29))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btnDangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(29, 29, 29))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(2, 2, 2)
-                .addComponent(btnTrangChu, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnTrangChu, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPhongHat, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,6 +173,13 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(btnThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(btnDangXuat))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 630));
+
+        mainPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 255, 255)));
+        mainPanel.setLayout(new java.awt.BorderLayout());
+        getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 720, 630));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -269,8 +274,6 @@ public class MainForm extends javax.swing.JFrame {
             public void run() {
                 ChaoJFrame chao = new ChaoJFrame();
                 chao.setVisible(true);
-                // DangNhapForm dangNhapForm = new DangNhapForm();
-                // dangNhapForm.setVisible(true);
             }
         });
     }
@@ -293,21 +296,5 @@ public class MainForm extends javax.swing.JFrame {
 
     private void init() {
         this.setLocationRelativeTo(null);
-        new ChaoJFrame().setVisible(true);
-        new DangNhapForm().setVisible(true);
-        // new Timer(10, new ActionListener() {
-        ////    @Override
-        // public void actionPerformed(ActionEvent e) {
-        // int value = pgbLoading.getValue();
-        // if (value < 100) {
-        // value += 1;
-        // pgbLoading.setValue(value);
-        // } else {
-        // ((Timer) e.getSource()).stop(); // Dừng Timer
-        // ChaoJFrame.this.dispose(); // Đóng màn hình hiện tại
-        // // Thêm logic để mở màn hình tiếp theo (nếu cần)
-        // }
-        // }
-        // }).start();
     }
 }
