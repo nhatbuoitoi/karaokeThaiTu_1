@@ -89,12 +89,12 @@ public class QuanLyPhongHatDAO {
 
     public void traTien(int maHoaDon) { 
 
-    String sqlTongTien = "SELECT SUM(ctdv.DON_GIA * ctdv.SO_LUONG) + SUM(cttp.DON_GIA) AS TongTien " +
-                         "FROM HOA_DON hd " +
-                         "JOIN CHI_TIET_DICH_VU ctdv ON hd.MA_HOA_DON = ctdv.MA_HOA_DON " +
-                         "JOIN CHI_TIET_TIEN_PHONG cttp ON hd.MA_HOA_DON = cttp.MA_HOA_DON " +
-                         "JOIN PHONG_HAT ph ON cttp.MA_PHONG_HAT = ph.MA_PHONG_HAT " +
-                         "WHERE hd.MA_HOA_DON = ?";
+    String sqlTongTien = "SELECT SUM(ISNULL(ctdv.DON_GIA * ctdv.SO_LUONG, 0))"
+            + " + SUM(cttp.DON_GIA) AS TongTien "
+            + "FROM  HOA_DON hd "
+            + "JOIN  CHI_TIET_TIEN_PHONG cttp ON hd.MA_HOA_DON = cttp.MA_HOA_DON "
+            + "LEFT JOIN CHI_TIET_DICH_VU ctdv ON hd.MA_HOA_DON = ctdv.MA_HOA_DON "
+            + "JOIN PHONG_HAT ph ON cttp.MA_PHONG_HAT = ph.MA_PHONG_HAT WHERE hd.MA_HOA_DON = ?";
     
     String sqlCapNhat = "UPDATE HOA_DON SET TONG_TIEN = ? WHERE MA_HOA_DON = ?";
     
@@ -113,7 +113,7 @@ public class QuanLyPhongHatDAO {
             int rowsUpdated = ps2.executeUpdate();
 
             if (rowsUpdated > 0) {
-                JOptionPane.showMessageDialog(null, "Trả phòng thành công! Tổng tiền: " + tongTien);
+                JOptionPane.showMessageDialog(null, "Trả phòng thành công!");
             } else {
                 JOptionPane.showMessageDialog(null, "Không tìm thấy hóa đơn này.");
             }
