@@ -21,23 +21,6 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
      */
     public QuanLyHoaDonJPanel() {
         initComponents();
-        fillTable();
-    }
-    
-    public void fillTable(){
-        List<Hoa_Don> listHoaDon = hoaDonDAO.readHoaDon();
-        DefaultTableModel model = (DefaultTableModel) tblHoaDon.getModel();
-        model.setRowCount(0);
-        for(Hoa_Don hoaDon : listHoaDon){
-            model.addRow(new Object[]{
-                hoaDon.getMA_HOA_DON(),
-                hoaDon.getMA_KHACH_HANG(),
-                hoaDon.isTRANG_THAI_THANH_TOAN(),
-                hoaDon.getMA_TAI_KHOAN(),
-                hoaDon.getTONG_TIEN(),
-                hoaDon.getNGAY_TAO(),
-            });
-        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -81,7 +64,6 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Quản Lý Hóa Đơn");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -134,7 +116,6 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
 
         jButton5.setBackground(new java.awt.Color(0, 204, 204));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 0, 0));
         jButton5.setText("Xem chi tiết");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,7 +125,6 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
 
         jButton6.setBackground(new java.awt.Color(0, 255, 204));
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(0, 0, 0));
         jButton6.setText("Làm mới");
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -193,7 +173,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
                             .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                             .addComponent(jLabel15)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -201,7 +181,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel14)
                             .addGap(60, 60, 60)
                             .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,25 +200,26 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel12)
                     .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel13)
+                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel14)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 38, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton5)
-                            .addComponent(jButton6)))
+                        .addComponent(btnTim)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnTim)
                             .addComponent(txtTimHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15)
                             .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton5)
+                            .addComponent(jButton6))))
                 .addContainerGap())
         );
 
@@ -252,7 +233,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Mã Hóa Đơn ", "Mã Khách Hàng", "Trạng Thái Thanh Toán", "Mã Nhân Viên", "Tổng Tiền", "Ngày Tạo"
+                "Mã Hóa Đơn ", "Mã Khách Hàng", "Trạng Thái Thanh Toán", "Mã Tài Khoản", "Tổng Tiền", "Ngày Tạo"
             }
         ));
         tblHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -293,7 +274,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
         );
@@ -305,26 +286,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void btnTimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tblHoaDon.getModel();
-        try {
-            int maHoaDon = Integer.parseInt(txtTimHoaDon.getText());
-            Hoa_Don hoaDon = hoaDonDAO.timHoaDon(maHoaDon);
-            model.setRowCount(0);
-            if( hoaDon != null){
-                model.addRow(new Object[]{
-                hoaDon.getMA_HOA_DON(),
-                hoaDon.getMA_KHACH_HANG(),
-                hoaDon.isTRANG_THAI_THANH_TOAN(),
-                hoaDon.getMA_TAI_KHOAN(),
-                hoaDon.getTONG_TIEN(),
-                hoaDon.getNGAY_TAO(),
-                });
-            } else{
-                JOptionPane.showMessageDialog(this, "Không tìm thấy hóa đơn với mã " +maHoaDon);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Vui Lòng nhập mã hóa đơn hợp lệ");
-        }
+
     }//GEN-LAST:event_btnTimActionPerformed
 
     private void tblHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblHoaDonMouseClicked

@@ -11,9 +11,9 @@ package entity;
 public class Loai_Phong {
         int MA_LOAI_PHONG;
 	String TEN_LOAI_PHONG;
-	int GIA_TIEN;;
+	double GIA_TIEN;;
 
-    public Loai_Phong(int MA_LOAI_PHONG, String TEN_LOAI_PHONG, int GIA_TIEN) {
+    public Loai_Phong(int MA_LOAI_PHONG, String TEN_LOAI_PHONG, double GIA_TIEN) {
         this.MA_LOAI_PHONG = MA_LOAI_PHONG;
         this.TEN_LOAI_PHONG = TEN_LOAI_PHONG;
         this.GIA_TIEN = GIA_TIEN;
@@ -38,11 +38,11 @@ public class Loai_Phong {
         this.TEN_LOAI_PHONG = TEN_LOAI_PHONG;
     }
 
-    public int getGIA_TIEN() {
+    public double getGIA_TIEN() {
         return GIA_TIEN;
     }
 
-    public void setGIA_TIEN(int GIA_TIEN) {
+    public void setGIA_TIEN(double GIA_TIEN) {
         this.GIA_TIEN = GIA_TIEN;
     }
             

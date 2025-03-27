@@ -94,7 +94,6 @@ public class PhongHat extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(0, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Arial", 3, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("ĐẶT - TRẢ PHÒNG HÁT");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -129,6 +128,11 @@ public class PhongHat extends javax.swing.JPanel {
         jButton1.setText("Tìm");
 
         jButton2.setText("Làm Mới");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -316,6 +320,10 @@ public class PhongHat extends javax.swing.JPanel {
         XemChiTietPhongHatJFrame xemChiTietPhongHatJFrame = new XemChiTietPhongHatJFrame();
         xemChiTietPhongHatJFrame.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       loadTable();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
