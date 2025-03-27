@@ -14,7 +14,6 @@ public class Hoa_Don {
         int MA_HOA_DON;
 	int MA_KHACH_HANG;
 	boolean TRANG_THAI_THANH_TOAN;
-	int MA_KHUYEN_MAI;
 	int MA_TAI_KHOAN;
 	double TONG_TIEN;
 	Date NGAY_TAO;
@@ -22,11 +21,10 @@ public class Hoa_Don {
     public Hoa_Don() {
     }
 
-    public Hoa_Don(int MA_HOA_DON, int MA_KHACH_HANG, boolean TRANG_THAI_THANH_TOAN, int MA_KHUYEN_MAI, int MA_TAI_KHOAN, double TONG_TIEN, Date NGAY_TAO) {
+    public Hoa_Don(int MA_HOA_DON, int MA_KHACH_HANG, boolean TRANG_THAI_THANH_TOAN, int MA_TAI_KHOAN, double TONG_TIEN, Date NGAY_TAO) {
         this.MA_HOA_DON = MA_HOA_DON;
         this.MA_KHACH_HANG = MA_KHACH_HANG;
         this.TRANG_THAI_THANH_TOAN = TRANG_THAI_THANH_TOAN;
-        this.MA_KHUYEN_MAI = MA_KHUYEN_MAI;
         this.MA_TAI_KHOAN = MA_TAI_KHOAN;
         this.TONG_TIEN = TONG_TIEN;
         this.NGAY_TAO = NGAY_TAO;
@@ -56,13 +54,6 @@ public class Hoa_Don {
         this.TRANG_THAI_THANH_TOAN = TRANG_THAI_THANH_TOAN;
     }
 
-    public int getMA_KHUYEN_MAI() {
-        return MA_KHUYEN_MAI;
-    }
-
-    public void setMA_KHUYEN_MAI(int MA_KHUYEN_MAI) {
-        this.MA_KHUYEN_MAI = MA_KHUYEN_MAI;
-    }
 
     public int getMA_TAI_KHOAN() {
         return MA_TAI_KHOAN;
