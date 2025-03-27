@@ -46,7 +46,7 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
        
         
         for(HoaDonChiTietTienPhongDTO ctt : listHoaDon){
-            String trangThaiText = ctt.isTrangThai() ? "Đang sử dụng" : "Trống";
+            String trangThaiText = ctt.isTrangThaiPhong() ? "Đang sử dụng" : "Trống";
             model.addRow(new Object[]{
                 ctt.getMaHoaDon(),
                 ctt.getMaPhongHat(),

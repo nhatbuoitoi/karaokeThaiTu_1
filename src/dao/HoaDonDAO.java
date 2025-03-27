@@ -37,7 +37,7 @@ public class HoaDonDAO {
                 String GIO_DAT = rs.getString("THOI_GIAN_NHAN_PHONG");
                 int MA_PHONG_HAT = rs.getInt("MA_PHONG_HAT");
                 
-                HoaDonChiTietTienPhongDTO hd = new HoaDonChiTietTienPhongDTO(MA_HOA_DON, MA_KHACH_HANG, MA_TAI_KHOAN, TONG_TIEN, GIO_DAT, TRANG_THAI, MA_PHONG_HAT);
+                HoaDonChiTietTienPhongDTO hd = new HoaDonChiTietTienPhongDTO(MA_HOA_DON, MA_KHACH_HANG, MA_TAI_KHOAN, TONG_TIEN, GIO_DAT, MA_TAI_KHOAN, MA_PHONG_HAT, GIO_DAT, GIO_DAT, TONG_TIEN, TRANG_THAI);
                 list.add(hd);
             }
             return list;
