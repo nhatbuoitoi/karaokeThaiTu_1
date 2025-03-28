@@ -104,8 +104,6 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
         tblDanhSach = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        txtTongTien = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -120,6 +118,8 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
         btnDichVu = new javax.swing.JButton();
         cboMaKhachHang = new javax.swing.JComboBox<>();
         btnQuayLai = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        txtTongTien = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -181,16 +181,6 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addContainerGap(28, Short.MAX_VALUE))
         );
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setText("Tổng Tiền");
-
-        txtTongTien.setEditable(false);
-        txtTongTien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTongTienActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Xem Chi Tiết Phòng");
@@ -260,6 +250,11 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel8.setText("Tổng Tiền");
+
+        txtTongTien.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -284,13 +279,13 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
                                 .addGap(78, 78, 78)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8))
                                 .addGap(90, 90, 90)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtTongTien, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
                                     .addComponent(txtGioDat, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                                    .addComponent(cboMaKhachHang, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(cboMaKhachHang, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtTongTien)))
                             .addComponent(btnQuayLai))
                         .addGap(48, 48, 48)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,8 +320,8 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(txtMaPhongHat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(txtTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel9)
+                            .addComponent(txtGioDat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(btnlamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -335,16 +330,16 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
                         .addGap(4, 4, 4)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel9)
                             .addComponent(cboMaTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtGioDat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel8)
+                            .addComponent(txtTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
-                .addComponent(btnTraPhong, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(btnTraPhong, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDichVu, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnQuayLai, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -362,10 +357,6 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
     private void btnlamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlamMoiActionPerformed
         fillTable();
     }//GEN-LAST:event_btnlamMoiActionPerformed
-
-    private void txtTongTienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTongTienActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTongTienActionPerformed
 
     private void txtMaHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaHoaDonActionPerformed
         // TODO add your handling code here:
@@ -413,9 +404,23 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void tblDanhSachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhSachMouseClicked
-        this.bienDemMaPhong = (int) tblDanhSach.getValueAt(tblDanhSach.getSelectedRow(), 1);
-        this.bienDemMaHoaDon = (int) tblDanhSach.getValueAt(tblDanhSach.getSelectedRow(), 0);
-        System.out.println(""+this.bienDemMaPhong);
+//        this.bienDemMaPhong = (int) tblDanhSach.getValueAt(tblDanhSach.getSelectedRow(), 1);
+//        this.bienDemMaHoaDon = (int) tblDanhSach.getValueAt(tblDanhSach.getSelectedRow(), 0);
+//        System.out.println(""+this.bienDemMaPhong);
+            int soDongChon = tblDanhSach.getSelectedRow();
+            String so0 = tblDanhSach.getValueAt(soDongChon, 0).toString();
+            String so1 = tblDanhSach.getValueAt(soDongChon, 1).toString();
+            String so2 = tblDanhSach.getValueAt(soDongChon, 2).toString();
+            String so3 = tblDanhSach.getValueAt(soDongChon, 3).toString();
+            String so4 = tblDanhSach.getValueAt(soDongChon, 4).toString();
+            String so5 = tblDanhSach.getValueAt(soDongChon, 5).toString();
+            
+            txtMaHoaDon.setText(so0);
+            txtMaPhongHat.setText(so1);
+            cboMaTaiKhoan.setSelectedItem(so2);
+            cboMaKhachHang.setSelectedItem(so3);
+            txtGioDat.setText(so4);
+            txtTongTien.setText(so5);
     }//GEN-LAST:event_tblDanhSachMouseClicked
 
     private void btnQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuayLaiActionPerformed
