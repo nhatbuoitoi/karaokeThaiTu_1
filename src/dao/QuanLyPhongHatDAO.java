@@ -89,7 +89,7 @@ public class QuanLyPhongHatDAO {
 
     public void traTien(int maHoaDon) { 
 
-    String sqlTongTien = "SELECT SUM(ISNULL(ctdv.DON_GIA * ctdv.SO_LUONG, 0))"
+    String sqlTongTien = "SELECT SUM(ISNULL(ctdv.DON_GIA, 0))"
             + " + SUM(cttp.DON_GIA) AS TongTien "
             + "FROM  HOA_DON hd "
             + "JOIN  CHI_TIET_TIEN_PHONG cttp ON hd.MA_HOA_DON = cttp.MA_HOA_DON "
