@@ -381,7 +381,8 @@ public class ThanhToanForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuayLaiActionPerformed
-        // TODO add your handling code here:
+        dispose(); // Đóng form hiện tại
+        XemChiTietPhongHatJFrame.setDefaultLookAndFeelDecorated(true);
     }//GEN-LAST:event_btnQuayLaiActionPerformed
 
     /**
