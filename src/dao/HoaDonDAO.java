@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class HoaDonDAO {
     public List<HoaDonChiTietTienPhongDTO> readHoaDon(){
-        String sql = "SELECT * FROM HOA_DON JOIN CHI_TIET_TIEN_PHONG ON HOA_DON.MA_HOA_DON = CHI_TIET_TIEN_PHONG.MA_HOA_DON WHERE CHI_TIET_TIEN_PHONG.TRANG_THAI = 1";
+        String sql = "SELECT * FROM HOA_DON JOIN CHI_TIET_TIEN_PHONG ON HOA_DON.MA_HOA_DON = CHI_TIET_TIEN_PHONG.MA_HOA_DON JOIN PHONG_HAT ON CHI_TIET_TIEN_PHONG.MA_PHONG_HAT = PHONG_HAT.MA_PHONG_HAT WHERE PHONG_HAT.TRANG_THAI = 1";
         
         List<HoaDonChiTietTienPhongDTO> list = new ArrayList<>();
         try(Connection con = KetNoiDB.getConnection();
