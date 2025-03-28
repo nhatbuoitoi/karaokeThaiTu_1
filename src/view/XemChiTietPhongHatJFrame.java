@@ -383,8 +383,8 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
 
     private void btnTraPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTraPhongActionPerformed
 
-        TraPhongJFrame traPhongJframe = new TraPhongJFrame();
-        traPhongJframe.setVisible(true);
+        ThanhToanForm tt = new ThanhToanForm();
+        tt.setVisible(true);
     }//GEN-LAST:event_btnTraPhongActionPerformed
 
     private void btnDichVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDichVuActionPerformed
