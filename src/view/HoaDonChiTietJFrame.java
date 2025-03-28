@@ -15,6 +15,7 @@ public class HoaDonChiTietJFrame extends javax.swing.JFrame {
      */
     public HoaDonChiTietJFrame() {
         initComponents();
+        init();
     }
 
     /**
@@ -86,13 +87,13 @@ public class HoaDonChiTietJFrame extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Mã Hóa Đơn", "Mã Dịch Vụ", "Số Lượng", "Đơn Giá", "Miêu Tả", "Trạng Thái "
+                "Mã Hóa Đơn", "Mã Dịch Vụ", "Số Lượng", "Đơn Giá"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -142,13 +143,13 @@ public class HoaDonChiTietJFrame extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Mã Hóa Đơn", "Mã Phòng Hát", "Thời Gian Nhận Phòng", "Đơn Giá", "Miêu Tả", "Trạng Thái"
+                "Mã Hóa Đơn", "Mã Phòng Hát", "Thời Gian Nhận Phòng", "Thời Gian Trả Phòng", "Đơn Giá"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -283,4 +284,8 @@ public class HoaDonChiTietJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+
+    private void init() {
+        this.setLocationRelativeTo(null);
+    }
 }

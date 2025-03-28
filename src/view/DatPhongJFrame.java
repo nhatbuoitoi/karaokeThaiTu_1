@@ -31,6 +31,7 @@ public class DatPhongJFrame extends javax.swing.JFrame {
         fillCbo2();
         fillCbo3();
         setText();
+        init();
     }
     public void fillCbo1() { 
         String sql = "Select MA_PHONG_HAT from PHONG_HAT";
@@ -119,7 +120,7 @@ public class DatPhongJFrame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtLoaiPhong = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnQuayLai = new javax.swing.JButton();
         txtGiaTien = new javax.swing.JTextField();
         cboMaKhachHang = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
@@ -185,7 +186,12 @@ public class DatPhongJFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("QUAY LẠI");
+        btnQuayLai.setText("QUAY LẠI");
+        btnQuayLai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuayLaiActionPerformed(evt);
+            }
+        });
 
         txtGiaTien.setEditable(false);
 
@@ -221,7 +227,7 @@ public class DatPhongJFrame extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(101, 101, 101)
-                .addComponent(jButton2)
+                .addComponent(btnQuayLai)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(83, 83, 83))
@@ -277,7 +283,7 @@ public class DatPhongJFrame extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnQuayLai, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
@@ -332,6 +338,11 @@ public class DatPhongJFrame extends javax.swing.JFrame {
 });
     }//GEN-LAST:event_cboMaPhongActionPerformed
 
+    private void btnQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuayLaiActionPerformed
+         dispose(); // Đóng form hiện tại
+        XemChiTietPhongHatJFrame.setDefaultLookAndFeelDecorated(true);
+    }//GEN-LAST:event_btnQuayLaiActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -368,11 +379,11 @@ public class DatPhongJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnQuayLai;
     private javax.swing.JComboBox<String> cboMaKhachHang;
     private javax.swing.JComboBox<String> cboMaPhong;
     private javax.swing.JComboBox<String> cboMaTaiKhoan;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -384,4 +395,8 @@ public class DatPhongJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtGiaTien;
     private javax.swing.JTextField txtLoaiPhong;
     // End of variables declaration//GEN-END:variables
+
+    private void init() {
+        this.setLocationRelativeTo(null);
+    }
 }

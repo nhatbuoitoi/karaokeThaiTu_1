@@ -27,6 +27,7 @@ public class PhongHat extends javax.swing.JPanel {
                 initComponents();
                 loadTable();
                 initCboTrangThai();
+                
 
         }
 
