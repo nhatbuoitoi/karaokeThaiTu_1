@@ -422,10 +422,9 @@ public class QuanLyDichVu extends javax.swing.JPanel {
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
-
         txtmaDichVu.setText("");
-    txttenDichVu.setText("");
-    txtdonGia.setText("");
+   txttenDichVu.setText("");
+   txtdonGia.setText("");
     txtmieuTa.setText("");
     if (cbomadanhMuc.getItemCount() > 0) {
         cbomadanhMuc.setSelectedIndex(0);

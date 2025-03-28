@@ -18,7 +18,8 @@ import javax.swing.JFrame;
  * @author This PC
  */
 public class TraPhongJFrame extends javax.swing.JFrame {
-    
+    public int MaTaiKhoan;
+    public int MaKhachHang;
     /**
      * Creates new form TraPhongJFrame
      */
@@ -26,8 +27,6 @@ public class TraPhongJFrame extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         fillCbo1();
-        fillCbo2();
-        fillCbo3();
     }
     
     public void fillCbo1() { 
@@ -43,32 +42,34 @@ public class TraPhongJFrame extends javax.swing.JFrame {
         }catch(SQLException e){
         }
      }
-    public void fillCbo2() { 
-        String sql = "Select MA_TAI_KHOAN from TAI_KHOAN";
+    public void setText(int ma){
+        String sql = "Select MA_TAI_KHOAN from HOA_DON WHERE MA_HOA_DON = ? ";
         try(Connection con = KetNoiDB.getConnection();
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery()){
-            cboMaTaiKhoan.removeAllItems();
+            PreparedStatement ps = con.prepareStatement(sql);){
+            
+            ps.setInt(1, ma );
+            ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                String ma_tai_khoan = rs.getString("MA_TAI_KHOAN");
-                cboMaTaiKhoan.addItem(ma_tai_khoan);
+                int ma_tai_khoan = rs.getInt("MA_TAI_KHOAN");
+                txtMaTaiKhoan.setText(String.valueOf(ma_tai_khoan));
             }
         }catch(SQLException e){
         }
-     }
-    public void fillCbo3() { 
-        String sql = "Select MA_KHACH_HANG from KHACH_HANG";
+    }
+    public void setText2(int ma){
+        String sql = "Select MA_KHACH_HANG from HOA_DON WHERE MA_HOA_DON = ? ";
         try(Connection con = KetNoiDB.getConnection();
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery()){
-            cboMaKhachHang.removeAllItems();
+            PreparedStatement ps = con.prepareStatement(sql);){
+            
+            ps.setInt(1, ma );
+            ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                String ma_khach_hang = rs.getString("MA_KHACH_HANG");
-                cboMaKhachHang.addItem(ma_khach_hang);
+                int ma_khach_hang = rs.getInt("MA_KHACH_HANG");
+                txtMaKhachHang.setText(String.valueOf(ma_khach_hang));
             }
         }catch(SQLException e){
         }
-     }
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -99,9 +100,9 @@ public class TraPhongJFrame extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
-        cboMaTaiKhoan = new javax.swing.JComboBox<>();
         cboMaHoaDon = new javax.swing.JComboBox<>();
-        cboMaKhachHang = new javax.swing.JComboBox<>();
+        txtMaKhachHang = new javax.swing.JTextField();
+        txtMaTaiKhoan = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -237,16 +238,12 @@ public class TraPhongJFrame extends javax.swing.JFrame {
         jTextField4.setEditable(false);
         jTextField4.setText("1051 Tôn Đức Thắng, Sở Dầu, Hồng Bàng, Hải Phòng");
 
-        cboMaTaiKhoan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         cboMaHoaDon.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboMaHoaDon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboMaHoaDonActionPerformed(evt);
             }
         });
-
-        cboMaKhachHang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -261,7 +258,7 @@ public class TraPhongJFrame extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cboMaKhachHang, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(txtMaKhachHang))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -269,7 +266,7 @@ public class TraPhongJFrame extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addComponent(jLabel6)
                         .addGap(18, 18, 18)
-                        .addComponent(cboMaTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtMaTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -278,7 +275,7 @@ public class TraPhongJFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -301,12 +298,12 @@ public class TraPhongJFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel6)
-                    .addComponent(cboMaTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cboMaHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboMaHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMaTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(cboMaKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMaKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -326,7 +323,13 @@ public class TraPhongJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void cboMaHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMaHoaDonActionPerformed
-    
+        cboMaHoaDon.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            setText(Integer.parseInt((String) cboMaHoaDon.getSelectedItem()));
+            setText2(Integer.parseInt((String) cboMaHoaDon.getSelectedItem()));
+        }
+});
     }//GEN-LAST:event_cboMaHoaDonActionPerformed
 
     /**
@@ -366,8 +369,6 @@ public class TraPhongJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cboMaHoaDon;
-    private javax.swing.JComboBox<String> cboMaKhachHang;
-    private javax.swing.JComboBox<String> cboMaTaiKhoan;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -388,5 +389,7 @@ public class TraPhongJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTable tblDanhSachHoaDon;
+    private javax.swing.JTextField txtMaKhachHang;
+    private javax.swing.JTextField txtMaTaiKhoan;
     // End of variables declaration//GEN-END:variables
 }
