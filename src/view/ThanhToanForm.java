@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ThanhToanForm extends javax.swing.JFrame {
     public int maHoaDon;
+    public double tong;
     /**
      * Creates new form ThanhToanForm
      */
@@ -31,10 +32,16 @@ public class ThanhToanForm extends javax.swing.JFrame {
         fillTable();
     }
     
+    public void setTxtTong(){
+        ThanhToanDAO ttDAO = new ThanhToanDAO();
+        double i = ttDAO.layTongTien(maHoaDon);
+        txtTongCOng.setText(String.valueOf(i));
+        tong = i;
+    }
+    
     public void fillTable(){
         ThanhToanDAO ttDAO = new ThanhToanDAO();
         List<HoaDon_CTTP_CTDV_DTO> list = ttDAO.readThanhToan();
-        double i = (double) ttDAO.tinhTienDichVu(maHoaDon);
         DefaultTableModel tblDanhSach = (DefaultTableModel) this.tblDanhSachHoaDon.getModel();
         tblDanhSach.setRowCount(0);
         
@@ -44,7 +51,8 @@ public class ThanhToanForm extends javax.swing.JFrame {
                 c.getTHOI_GIAN_NHAN_PHONG(),
                 c.getTHOI_GIAN_TRA_PHONG(),
                 c.getDON_GIA_TIEN_PHONG(),
-                i,
+                c.getDON_GIA_DICH_VU(),
+                (c.getDON_GIA_TIEN_PHONG() + c.getDON_GIA_DICH_VU())
                 
             });
         }
@@ -119,9 +127,9 @@ public class ThanhToanForm extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        txtTienNhan = new javax.swing.JTextField();
+        txtTienThua = new javax.swing.JTextField();
+        txtTongCOng = new javax.swing.JTextField();
         btnQuayLai = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -208,9 +216,15 @@ public class ThanhToanForm extends javax.swing.JFrame {
             }
         });
 
-        jTextField2.setEditable(false);
+        txtTienNhan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTienNhanActionPerformed(evt);
+            }
+        });
 
-        jTextField5.setEditable(false);
+        txtTienThua.setEditable(false);
+
+        txtTongCOng.setEditable(false);
 
         btnQuayLai.setText("QUAY LẠI");
         btnQuayLai.addActionListener(new java.awt.event.ActionListener() {
@@ -229,11 +243,11 @@ public class ThanhToanForm extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtTienNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2)))
+                        .addComponent(txtTienThua)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -243,7 +257,7 @@ public class ThanhToanForm extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5)))
+                        .addComponent(txtTongCOng)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnQuayLai)
                 .addGap(23, 23, 23))
@@ -254,9 +268,9 @@ public class ThanhToanForm extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTienNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTongCOng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -264,7 +278,7 @@ public class ThanhToanForm extends javax.swing.JFrame {
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnQuayLai, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTienThua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel9)))
                 .addGap(13, 13, 13))
         );
@@ -363,6 +377,7 @@ public class ThanhToanForm extends javax.swing.JFrame {
                     maHoaDon = Integer.parseInt(selectedItem.toString().trim());
                     setText(maHoaDon);
                     setText2(maHoaDon);
+                    setTxtTong();
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Mã hóa đơn không hợp lệ!");
                 }
@@ -377,13 +392,29 @@ public class ThanhToanForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        double i = Double.parseDouble(txtTienNhan.getText());
+        if (i > 0){
+            if (i > tong){
+                    ThanhToanDAO ttDAO = new ThanhToanDAO();
+                    ttDAO.thanhToan(maHoaDon);
+                    fillCbo1();}
+            else{
+                JOptionPane.showMessageDialog(this, "Giá tiền nhập phải cao hơn số tiền phải trả.");
+            }
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Giá tiền nhập thấp hoặc bằng 0 VND.");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuayLaiActionPerformed
         dispose(); // Đóng form hiện tại
         XemChiTietPhongHatJFrame.setDefaultLookAndFeelDecorated(true);
     }//GEN-LAST:event_btnQuayLaiActionPerformed
+
+    private void txtTienNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTienNhanActionPerformed
+        
+    }//GEN-LAST:event_txtTienNhanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -437,13 +468,13 @@ public class ThanhToanForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTable tblDanhSachHoaDon;
     private javax.swing.JTextField txtMaKhachHang;
     private javax.swing.JTextField txtMaTaiKhoan;
+    private javax.swing.JTextField txtTienNhan;
+    private javax.swing.JTextField txtTienThua;
+    private javax.swing.JTextField txtTongCOng;
     // End of variables declaration//GEN-END:variables
 }

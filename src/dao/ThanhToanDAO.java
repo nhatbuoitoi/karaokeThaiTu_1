@@ -61,29 +61,35 @@ public class ThanhToanDAO {
     }
     return list;
 }
-
-    
-    public double tinhTienDichVu(int maHoaDon) { 
-    double tongTien = 0;
-    String sql = "SELECT COALESCE(SUM(SO_LUONG * DON_GIA), 0) AS TongTien " +
-                 "FROM CHI_TIET_DICH_VU " +
-                 "WHERE MA_HOA_DON = ?";
-
-    try (Connection con = KetNoiDB.getConnection();
+    public void thanhToan(int ma){
+        String sql = "UPDATE HOA_DON SET TRANG_THAI_THANH_TOAN = 1 WHERE MA_HOA_DON = ?";
+        try (Connection con = KetNoiDB.getConnection();
          PreparedStatement ps = con.prepareStatement(sql)) {
         
-        ps.setInt(1, maHoaDon);
+        ps.setInt(1, ma); 
+        ps.executeUpdate();
+
+    } catch (SQLException e) {
+        e.printStackTrace(); 
+    }
+    }
+    
+    public double layTongTien(int ma){
+        double tong;
+        String sql = "SELECT TONG_TIEN FROM HOA_DON WHERE MA_HOA_DON = ?";
+        try (Connection con = KetNoiDB.getConnection();
+        PreparedStatement ps = con.prepareStatement(sql)) {
+        
+        ps.setInt(1, ma);
         ResultSet rs = ps.executeQuery();
-        
-        if (rs.next()) {
-            tongTien = rs.getDouble("TongTien");
+        while(rs.next()){
+            tong = rs.getDouble("TONG_TIEN");
+            return tong;
         }
-        
     } catch (SQLException e) {
         e.printStackTrace();
+        
+    }   return 0;
     }
-    return tongTien;
-}
-    
     
 }
