@@ -68,8 +68,8 @@ public class DatPhongDAO {
                            "VALUES (?, ?, NULL, GETDATE(), 0); SELECT SCOPE_IDENTITY();";
         
         String sqlChiTietTienPhong = "INSERT INTO CHI_TIET_TIEN_PHONG (MA_HOA_DON, MA_PHONG_HAT, THOI_GIAN_NHAN_PHONG, " +
-                                     "THOI_GIAN_TRA_PHONG, DON_GIA, MIEU_TA, TRANG_THAI) " +
-                                     "VALUES (?, ?, GETDATE(), NULL, NULL, 'Đang sử dụng', 1)";
+                                     "THOI_GIAN_TRA_PHONG, DON_GIA, TRANG_THAI) " +
+                                     "VALUES (?, ?, GETDATE(), NULL, NULL, 1)";
         
         String sqlUpdatePhong = "UPDATE PHONG_HAT SET TRANG_THAI = 1 WHERE MA_PHONG_HAT = ?";
         
@@ -88,7 +88,6 @@ public class DatPhongDAO {
             }
         }
 
-        // Tạo hóa đơn và lấy mã hóa đơn
         try (PreparedStatement ps = con.prepareStatement(sqlHoaDon);
              PreparedStatement ps2 = con.prepareStatement(sqlChiTietTienPhong);
              PreparedStatement psUpdate = con.prepareStatement(sqlUpdatePhong)) {
@@ -101,12 +100,12 @@ public class DatPhongDAO {
                     int maHoaDon = rs.getInt(1);
                     System.out.println("New ma hoa don: " + maHoaDon);
 
-                    // Thêm chi tiết tiền phòng
+
                     ps2.setInt(1, maHoaDon);
                     ps2.setInt(2, maPhongHat);
                     ps2.executeUpdate();
 
-                    // Cập nhật trạng thái phòng thành "đang sử dụng"
+
                     psUpdate.setInt(1, maPhongHat);
                     psUpdate.executeUpdate();
 

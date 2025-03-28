@@ -20,11 +20,22 @@ public class HoaDonChiTietTienPhongDTO {
     String THOI_GIAN_TRA_PHONG;
     double donGia;
     boolean trangThaiPhong;
+    boolean trangThai;
+
+    public boolean isTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(boolean trangThai) {
+        this.trangThai = trangThai;
+    }
+
+
 
     public HoaDonChiTietTienPhongDTO() {
     }
 
-    public HoaDonChiTietTienPhongDTO(int maHoaDon, int maKhachHang, int maTaiKhoan, double tongTien, String gioDat, int maChiTietTienPhong, int maPhongHat, String THOI_GIAN_NHAN_PHONG, String THOI_GIAN_TRA_PHONG, double donGia, boolean trangThaiPhong) {
+    public HoaDonChiTietTienPhongDTO(int maHoaDon, int maKhachHang, int maTaiKhoan, double tongTien, String gioDat, int maChiTietTienPhong, int maPhongHat, String THOI_GIAN_NHAN_PHONG, String THOI_GIAN_TRA_PHONG, double donGia, boolean trangThai) {
         this.maHoaDon = maHoaDon;
         this.maKhachHang = maKhachHang;
         this.maTaiKhoan = maTaiKhoan;
@@ -35,7 +46,7 @@ public class HoaDonChiTietTienPhongDTO {
         this.THOI_GIAN_NHAN_PHONG = THOI_GIAN_NHAN_PHONG;
         this.THOI_GIAN_TRA_PHONG = THOI_GIAN_TRA_PHONG;
         this.donGia = donGia;
-        this.trangThaiPhong = trangThaiPhong;
+        this.trangThai = trangThai;
     }
 
     public void setMaHoaDon(int maHoaDon) {
