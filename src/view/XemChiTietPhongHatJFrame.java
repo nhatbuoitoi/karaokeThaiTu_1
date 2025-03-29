@@ -411,7 +411,7 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
         e.printStackTrace();
     }
     }//GEN-LAST:event_jButton4ActionPerformed
-
+    
     private void tblDanhSachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhSachMouseClicked
         this.bienDemMaPhong = (int) tblDanhSach.getValueAt(tblDanhSach.getSelectedRow(), 1);
         this.bienDemMaHoaDon = (int) tblDanhSach.getValueAt(tblDanhSach.getSelectedRow(), 0);

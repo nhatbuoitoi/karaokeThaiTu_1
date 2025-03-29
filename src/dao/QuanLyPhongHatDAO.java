@@ -63,6 +63,7 @@ public class QuanLyPhongHatDAO {
         return false;
     }
     
+    
     public void capNhatDonGiaChiTietTienPhong(int maHoaDon) {
         
         String sql = "UPDATE CHI_TIET_TIEN_PHONG "

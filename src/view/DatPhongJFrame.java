@@ -34,7 +34,7 @@ public class DatPhongJFrame extends javax.swing.JFrame {
         init();
     }
     public void fillCbo1() { 
-        String sql = "Select MA_PHONG_HAT from PHONG_HAT";
+        String sql = "Select MA_PHONG_HAT from PHONG_HAT Where TRANG_THAI = 0";
         try(Connection con = KetNoiDB.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery()){
