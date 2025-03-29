@@ -404,9 +404,10 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
     
     private void tblDanhSachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhSachMouseClicked
-//        this.bienDemMaPhong = (int) tblDanhSach.getValueAt(tblDanhSach.getSelectedRow(), 1);
-//        this.bienDemMaHoaDon = (int) tblDanhSach.getValueAt(tblDanhSach.getSelectedRow(), 0);
-//        System.out.println(""+this.bienDemMaPhong);
+            this.bienDemMaPhong = (int) tblDanhSach.getValueAt(tblDanhSach.getSelectedRow(), 1);
+            this.bienDemMaHoaDon = (int) tblDanhSach.getValueAt(tblDanhSach.getSelectedRow(), 0);
+            System.out.println(""+this.bienDemMaPhong);
+           
             int soDongChon = tblDanhSach.getSelectedRow();
             String so0 = tblDanhSach.getValueAt(soDongChon, 0).toString();
             String so1 = tblDanhSach.getValueAt(soDongChon, 1).toString();
