@@ -16,6 +16,15 @@ public class Chi_Tiet_Tien_Phong {
 	String THOI_GIAN_NHAN_PHONG;
 	String THOI_GIAN_TRA_PHONG;
 	double DON_GIA;
+        boolean TRANG_THAI;
+
+    public boolean isTRANG_THAI() {
+        return TRANG_THAI;
+    }
+
+    public void setTRANG_THAI(boolean TRANG_THAI) {
+        this.TRANG_THAI = TRANG_THAI;
+    }
 
     public Chi_Tiet_Tien_Phong() {
     }
