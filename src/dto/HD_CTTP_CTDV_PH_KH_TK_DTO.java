@@ -48,6 +48,18 @@ public class HD_CTTP_CTDV_PH_KH_TK_DTO {
 	String SDT_TAI_KHOAN;
 	boolean VAI_TRO;
 
+    public HD_CTTP_CTDV_PH_KH_TK_DTO(String THOI_GIAN_NHAN_PHONG, String THOI_GIAN_TRA_PHONG, double DON_GIA_PHONG_HAT, double DON_GIA_DICH_VU, String TEN_PHONG_HAT, String TEN_KHACH_HANG, String HO_TEN) {
+        this.THOI_GIAN_NHAN_PHONG = THOI_GIAN_NHAN_PHONG;
+        this.THOI_GIAN_TRA_PHONG = THOI_GIAN_TRA_PHONG;
+        this.DON_GIA_PHONG_HAT = DON_GIA_PHONG_HAT;
+        this.DON_GIA_DICH_VU = DON_GIA_DICH_VU;
+        this.TEN_PHONG_HAT = TEN_PHONG_HAT;
+        this.TEN_KHACH_HANG = TEN_KHACH_HANG;
+        this.HO_TEN = HO_TEN;
+    }
+    
+        
+        
     public HD_CTTP_CTDV_PH_KH_TK_DTO(int MA_HOA_DON, int MA_PHONG_HAT, String THOI_GIAN_NHAN_PHONG, boolean TRANG_THAI, String TEN_PHONG_HAT, String TEN_KHACH_HANG, String HO_TEN) {
         this.MA_HOA_DON = MA_HOA_DON;
         this.MA_PHONG_HAT = MA_PHONG_HAT;
