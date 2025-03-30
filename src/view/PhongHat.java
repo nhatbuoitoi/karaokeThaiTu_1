@@ -5,6 +5,7 @@
 package view;
 
 import dao.PhongHatDAO;
+import dao.QuanLyPhongHatDAO;
 import db.KetNoiDB;
 import dto.PhongHatDTO;
 import java.sql.Connection;
@@ -12,6 +13,7 @@ import java.sql.ResultSet;
 
 import java.sql.PreparedStatement;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  * @author This PC
  */
 public class PhongHat extends javax.swing.JPanel {
-
+        public int layMaHoaDon;
         /**
          * Creates new form PhongHat
          */
@@ -321,30 +323,37 @@ public class PhongHat extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDatPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatPhongActionPerformed
-
-        DatPhongJFrame datPhongJframe = new DatPhongJFrame();
+        DatPhongJFrame datPhongJframe = new DatPhongJFrame((int) tblPhongHat.getValueAt(tblPhongHat.getSelectedRow(), 0));
         datPhongJframe.setVisible(true);
     }//GEN-LAST:event_btnDatPhongActionPerformed
 
         private void tblPhongHatMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tblPhongHatMouseClicked
                 int selectedRow = tblPhongHat.getSelectedRow();
+                QuanLyPhongHatDAO qlphDAO = new QuanLyPhongHatDAO();
                 if (selectedRow != -1) {
                         txtMaPhongHat.setText(tblPhongHat.getValueAt(selectedRow, 0).toString());
                         txtTenLoaiPhong.setText(tblPhongHat.getValueAt(selectedRow, 1).toString());
                         txtTenPhongHat.setText(tblPhongHat.getValueAt(selectedRow, 2).toString());
-
                         String trangThaiText = tblPhongHat.getValueAt(selectedRow, 3).toString();
                         if (trangThaiText.equals("Đang sử dụng")) {
                                 cboTrangThai.setSelectedItem("Đang sử dụng");
                         } else {
                                 cboTrangThai.setSelectedItem("Trống");
                         }
+                        layMaHoaDon = qlphDAO.getMaHoaDonBangMaPhong((int) tblPhongHat.getValueAt(selectedRow, 0));
+                        
                 }
         }// GEN-LAST:event_tblPhongHatMouseClicked
 
-        private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
-                XemChiTietPhongHatJFrame xct = new XemChiTietPhongHatJFrame();
-                xct.setVisible(true);
+        private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed  
+                String check = (String) tblPhongHat.getValueAt(tblPhongHat.getSelectedRow(), 3);
+                if (check.equals("Đang sử dụng")){
+                    XemChiTietPhongHatJFrame xct = new XemChiTietPhongHatJFrame(layMaHoaDon, (int) tblPhongHat.getValueAt(tblPhongHat.getSelectedRow(), 0));
+                    xct.setVisible(true);
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Phòng không có người sử dụng nên không thể xem !");
+                }
         }// GEN-LAST:event_jButton3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

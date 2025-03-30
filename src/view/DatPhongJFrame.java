@@ -20,33 +20,25 @@ import javax.swing.JOptionPane;
  * @author This PC
  */
 public class DatPhongJFrame extends javax.swing.JFrame {
+    public int maPhongHat;
     DatPhongDAO dpDAO = new DatPhongDAO();
     /**
      * Creates new form DatPhongJFrame
      */
-    public DatPhongJFrame() {
+    public DatPhongJFrame(int maPhongHat) {
+        this.maPhongHat = maPhongHat;
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        fillCbo1();
+        setTextMaPhong();
         fillCbo2();
         fillCbo3();
         setText();
         init();
     }
-    public void fillCbo1() { 
-        String sql = "Select MA_PHONG_HAT from PHONG_HAT Where TRANG_THAI = 0";
-        try(Connection con = KetNoiDB.getConnection();
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery()){
-            cboMaPhong.removeAllItems();
-            while(rs.next()){
-                String ma_phong_hat = rs.getString("MA_PHONG_HAT");
-                cboMaPhong.addItem(ma_phong_hat);
-            }
-  
-        }catch(SQLException e){
-        }
-     }
+
+    private DatPhongJFrame() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     public void fillCbo2() { 
         String sql = "Select MA_TAI_KHOAN from TAI_KHOAN";
         try(Connection con = KetNoiDB.getConnection();
@@ -75,9 +67,11 @@ public class DatPhongJFrame extends javax.swing.JFrame {
         }catch(SQLException e){
         }
      }
-    
+    public void setTextMaPhong(){
+        txtSoPhong.setText(String.valueOf(maPhongHat));
+    }
     public void setText(){
-        String bien =   (String) cboMaPhong.getSelectedItem();
+        String bien = txtSoPhong.getText();
         String i = dpDAO.readTenPhongHat(Integer.parseInt(bien));
         double n = dpDAO.readGiaPhongHat(Integer.parseInt(bien));
         txtLoaiPhong.setText(i);
@@ -86,7 +80,7 @@ public class DatPhongJFrame extends javax.swing.JFrame {
     
     public void xuLyDatPhong() {
     try {
-        int maPhongHat = Integer.parseInt(cboMaPhong.getSelectedItem().toString());
+        int maPhongHat = Integer.parseInt(txtSoPhong.getText().toString());
         int maTaiKhoan = Integer.parseInt(cboMaTaiKhoan.getSelectedItem().toString());
         int maKhachHang = Integer.parseInt(cboMaKhachHang.getSelectedItem().toString());
 
@@ -125,7 +119,7 @@ public class DatPhongJFrame extends javax.swing.JFrame {
         cboMaKhachHang = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         cboMaTaiKhoan = new javax.swing.JComboBox<>();
-        cboMaPhong = new javax.swing.JComboBox<>();
+        txtSoPhong = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(720, 530));
@@ -202,23 +196,7 @@ public class DatPhongJFrame extends javax.swing.JFrame {
 
         cboMaTaiKhoan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        cboMaPhong.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cboMaPhong.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cboMaPhongMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                cboMaPhongMouseEntered(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                cboMaPhongMouseReleased(evt);
-            }
-        });
-        cboMaPhong.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboMaPhongActionPerformed(evt);
-            }
-        });
+        txtSoPhong.setEditable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -250,10 +228,10 @@ public class DatPhongJFrame extends javax.swing.JFrame {
                             .addComponent(txtLoaiPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(53, 53, 53)
                             .addComponent(jLabel7)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(43, 43, 43)
                             .addComponent(txtGiaTien, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(cboMaPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSoPhong)
                             .addGap(35, 35, 35)
                             .addComponent(jLabel5)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -269,7 +247,7 @@ public class DatPhongJFrame extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel5)
                     .addComponent(cboMaKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cboMaPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSoPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -313,30 +291,9 @@ public class DatPhongJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLoaiPhongActionPerformed
 
-    private void cboMaPhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboMaPhongMouseClicked
-    
-    }//GEN-LAST:event_cboMaPhongMouseClicked
-
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
         
     }//GEN-LAST:event_jPanel1MousePressed
-
-    private void cboMaPhongMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboMaPhongMouseEntered
-        
-    }//GEN-LAST:event_cboMaPhongMouseEntered
-
-    private void cboMaPhongMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboMaPhongMouseReleased
-        
-    }//GEN-LAST:event_cboMaPhongMouseReleased
-
-    private void cboMaPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMaPhongActionPerformed
-        cboMaPhong.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            setText(); 
-        }
-});
-    }//GEN-LAST:event_cboMaPhongActionPerformed
 
     private void btnQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuayLaiActionPerformed
          dispose(); // Đóng form hiện tại
@@ -381,7 +338,6 @@ public class DatPhongJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnQuayLai;
     private javax.swing.JComboBox<String> cboMaKhachHang;
-    private javax.swing.JComboBox<String> cboMaPhong;
     private javax.swing.JComboBox<String> cboMaTaiKhoan;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -394,6 +350,7 @@ public class DatPhongJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtGiaTien;
     private javax.swing.JTextField txtLoaiPhong;
+    private javax.swing.JTextField txtSoPhong;
     // End of variables declaration//GEN-END:variables
 
     private void init() {
