@@ -127,8 +127,25 @@ public class QuanLyPhongHatDAO {
         JOptionPane.showMessageDialog(null, "Lỗi khi trả phòng!");
     }
 }
+    public int getMaHoaDonBangMaPhong(int maPhongHat) {
+        String sql = "SELECT MA_HOA_DON FROM CHI_TIET_TIEN_PHONG WHERE MA_PHONG_HAT = ? AND TRANG_THAI = 0";
+        int maHoaDon = 0;
+
+        try (Connection con = KetNoiDB.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql)) {
+        
+            ps.setInt(1, maPhongHat);
+            ResultSet rs = ps.executeQuery();
+        
+            if (rs.next()) {
+                maHoaDon = rs.getInt("MA_HOA_DON");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     
-    
+        return maHoaDon;
+    } 
 }
     
 
