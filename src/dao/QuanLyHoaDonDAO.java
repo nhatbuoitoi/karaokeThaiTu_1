@@ -104,12 +104,11 @@ public class QuanLyHoaDonDAO {
     }
     
     public double readGiaTienPhongHat(int maHoaDon){
-        String sql = "SELECT ROUND((DATEDIFF(SECOND, cttp.THOI_GIAN_NHAN_PHONG, GETDATE()) / 3600.0) * lp.GIA_TIEN, 0)"
+        String sql = "SELECT (DATEDIFF(SECOND, cttp.THOI_GIAN_NHAN_PHONG, GETDATE()) / 3600.0) * lp.GIA_TIEN"
                 + " AS DON_GIA_TIEN_PHONG FROM CHI_TIET_TIEN_PHONG cttp "
                 + "JOIN PHONG_HAT ph ON cttp.MA_PHONG_HAT = ph.MA_PHONG_HAT "
                 + "JOIN LOAI_PHONG lp ON ph.MA_LOAI_PHONG = lp.MA_LOAI_PHONG "
                 + "WHERE cttp.MA_HOA_DON = ?";
-        double i = 0;
         try(Connection con = KetNoiDB.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);){
             
@@ -117,12 +116,12 @@ public class QuanLyHoaDonDAO {
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
-                i = rs.getDouble("DON_GIA_TIEN_PHONG");
+                return rs.getDouble("DON_GIA_TIEN_PHONG");
             }
-            return i;
+            return 0;
         }catch(SQLException e){
             e.printStackTrace();
-            return i;
+            return 0;
         }
     }
     
