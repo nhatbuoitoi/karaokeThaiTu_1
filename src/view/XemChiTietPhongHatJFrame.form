@@ -85,10 +85,8 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="btnQuayLai" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
                       <Component id="btnlamMoi" min="-2" pref="131" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnTraPhong" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButton4" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -132,7 +130,6 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnDichVu" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                  <Component id="btnTraPhong" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="jButton4" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                   <Component id="btnlamMoi" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                   <Component id="btnQuayLai" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
@@ -301,14 +298,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnTraPhong">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="THANH TO&#xc1;N"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTraPhongActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDichVu">

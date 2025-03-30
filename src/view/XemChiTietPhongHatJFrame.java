@@ -111,7 +111,6 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtGioDat = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
-        btnTraPhong = new javax.swing.JButton();
         btnDichVu = new javax.swing.JButton();
         btnQuayLai = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
@@ -216,13 +215,6 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnTraPhong.setText("THANH TOÁN");
-        btnTraPhong.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTraPhongActionPerformed(evt);
-            }
-        });
-
         btnDichVu.setText("DỊCH VỤ");
         btnDichVu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -289,10 +281,8 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnQuayLai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(144, 144, 144)
                         .addComponent(btnlamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnTraPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -329,7 +319,6 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDichVu, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTraPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnlamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnQuayLai, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -354,12 +343,6 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
     private void txtGioDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGioDatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGioDatActionPerformed
-
-    private void btnTraPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTraPhongActionPerformed
-
-        ThanhToanForm tt = new ThanhToanForm();
-        tt.setVisible(true);
-    }//GEN-LAST:event_btnTraPhongActionPerformed
 
     private void btnDichVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDichVuActionPerformed
         int i = (int) tblDanhSach.getValueAt(0,1);
@@ -435,7 +418,6 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDichVu;
     private javax.swing.JButton btnQuayLai;
-    private javax.swing.JButton btnTraPhong;
     private javax.swing.JButton btnlamMoi;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton4;
