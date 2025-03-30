@@ -27,31 +27,34 @@ import javax.swing.table.DefaultTableModel;
 public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
     QuanLyPhongHatDAO qlphDAO = new QuanLyPhongHatDAO();
     QuanLyHoaDonDAO qlhdDAO = new QuanLyHoaDonDAO();
-    public int maHoaDon;
     public int maPhongHat;
     /**
      * Creates new form XemChiTietPhongHatJFrame
      */
     public XemChiTietPhongHatJFrame(int maHoaDon, int maPhongHat) {
-        this.maHoaDon = maHoaDon;
         this.maPhongHat = maPhongHat;
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         fillTable();
+        fillTbl();
         init();
     }
 
     private XemChiTietPhongHatJFrame() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
+    public void fillTbl(){
+        int maHoaDon = (int) tblDanhSach.getValueAt(0, 0);
+        double tong = qlhdDAO.readGiaTienPhongHat(maHoaDon) + qlhdDAO.readGiaTienDichVu(maHoaDon);
+        tblDanhSach.setValueAt(tong, 0, 6);
+        System.out.println(""+qlhdDAO.readGiaTienPhongHat(maHoaDon));
+        System.out.println(""+qlhdDAO.readGiaTienDichVu(maHoaDon));
+    }
+    
     public void fillTable(){
         
         List<HD_CTTP_CTDV_PH_KH_TK_DTO> list = qlhdDAO.readHoaDon2(this.maPhongHat);
-        double ttph = qlhdDAO.readGiaTienPhongHat(maHoaDon);
-        double ttdv = qlhdDAO.readGiaTienDichVu(maHoaDon);
-
-        System.out.println(""+ttph);
-        System.out.println(""+ttdv);
         
         
         DefaultTableModel model = (DefaultTableModel) tblDanhSach.getModel();
@@ -65,10 +68,11 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
                 l.getTEN_KHACH_HANG(),
                 l.getHO_TEN(),
                 l.getTHOI_GIAN_NHAN_PHONG(),
-                ttph + ttdv,
+                0,
                 trangThaiText
-            });
-        }
+            }
+            );
+        }fillTbl();
     }
     
     public void setText(){
