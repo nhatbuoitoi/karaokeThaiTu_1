@@ -5,6 +5,7 @@
 package view;
 
 import dao.QuanLyHoaDonDAO;
+import dto.HD_CTTP_CTDV_PH_KH_TK_DTO;
 import entity.Hoa_Don;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -26,19 +27,21 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
     }
     
     public void fillTable(){
-        List<Hoa_Don> hoaDonList = quanLyHoaDonDAO.loadHoaDon();
+        List<HD_CTTP_CTDV_PH_KH_TK_DTO> hoaDonList = quanLyHoaDonDAO.readHoaDon();
         DefaultTableModel model = (DefaultTableModel) tblHoaDon.getModel();
         model.setRowCount(0);
-        for(Hoa_Don hd : hoaDonList){
+        
+        for(HD_CTTP_CTDV_PH_KH_TK_DTO hd : hoaDonList){
             String trangThaiThanhToanText = hd.isTRANG_THAI_THANH_TOAN() ? "Đã Thanh Toán" : "Chưa Thanh Toán";
-            model.addRow(new Object[]{
+                model.addRow(new Object[]{
                 hd.getMA_HOA_DON(),
-                hd.getMA_KHACH_HANG(),
-                hd.getMA_TAI_KHOAN(),
+                hd.getTEN_KHACH_HANG(),
+                hd.getHO_TEN(),
                 hd.getTONG_TIEN(),
                 hd.getNGAY_TAO(),
                 trangThaiThanhToanText
             });
+
         }
     }
 
@@ -111,7 +114,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
         jLabel9.setText("Mã Hóa Đơn");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel10.setText("Mã Khách Hàng");
+        jLabel10.setText("Tên Khách Hàng");
 
         btnTim.setBackground(new java.awt.Color(0, 153, 153));
         btnTim.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -123,7 +126,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
         });
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel12.setText("Mã Nhân Viên");
+        jLabel12.setText("Tên Nhân Viên");
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel13.setText("Trạng Thái Thanh Toán");
@@ -208,7 +211,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
                                 .addComponent(jButton6)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton7)))))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,7 +259,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Mã Hóa Đơn ", "Mã Khách Hàng", "Mã Tài Khoản", "Tổng Tiền", "Ngày Tạo", "Trạng Thái Thanh Toán"
+                "Mã Hóa Đơn ", "Tên Khách Hàng", "Tên Tài Khoản", "Tổng Tiền", "Ngày Tạo", "Trạng Thái Thanh Toán"
             }
         ));
         tblHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -310,7 +313,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton5ActionPerformed
-        HoaDonChiTietJFrame hoaDonChiTietJFrame = new HoaDonChiTietJFrame();
+        HoaDonChiTietJFrame hoaDonChiTietJFrame = new HoaDonChiTietJFrame((int) tblHoaDon.getValueAt(tblHoaDon.getSelectedRow(), 0));
         hoaDonChiTietJFrame.setVisible(true);
     }// GEN-LAST:event_jButton5ActionPerformed
 

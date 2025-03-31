@@ -62,7 +62,7 @@ public class ThanhToanForm extends javax.swing.JFrame {
     }
     
     public void fillCbo1() { 
-        String sql = "Select MA_HOA_DON from HOA_DON WHERE TRANG_THAI_THANH_TOAN = 0";
+        String sql = "Select MA_HOA_DON from HOA_DON WHERE TRANG_THAI_THANH_TOAN = 0 AND TONG_TIEN IS NOT NULL";
         try(Connection con = KetNoiDB.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery()){

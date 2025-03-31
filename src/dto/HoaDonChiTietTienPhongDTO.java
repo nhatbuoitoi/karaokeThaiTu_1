@@ -30,7 +30,15 @@ public class HoaDonChiTietTienPhongDTO {
         this.trangThai = trangThai;
     }
 
+    public HoaDonChiTietTienPhongDTO(int maChiTietTienPhong, int maPhongHat, String THOI_GIAN_NHAN_PHONG, String THOI_GIAN_TRA_PHONG, double donGia) {
+        this.maChiTietTienPhong = maChiTietTienPhong;
+        this.maPhongHat = maPhongHat;
+        this.THOI_GIAN_NHAN_PHONG = THOI_GIAN_NHAN_PHONG;
+        this.THOI_GIAN_TRA_PHONG = THOI_GIAN_TRA_PHONG;
+        this.donGia = donGia;
+    }
 
+    
 
     public HoaDonChiTietTienPhongDTO() {
     }
