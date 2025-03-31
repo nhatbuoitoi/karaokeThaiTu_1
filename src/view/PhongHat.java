@@ -338,14 +338,10 @@ public class PhongHat extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDatPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatPhongActionPerformed
-        String check = (String) tblPhongHat.getValueAt(tblPhongHat.getSelectedRow(), 3);
-                if (check.equals("Đang sử dụng")){
+
                     DatPhongJFrame datPhongJframe = new DatPhongJFrame((int) tblPhongHat.getValueAt(tblPhongHat.getSelectedRow(), 0));
                     datPhongJframe.setVisible(true);
-                }
-                else{
-                    JOptionPane.showMessageDialog(this, "Phòng không có người sử dụng nên không thể đặt !");
-                }
+                
     }//GEN-LAST:event_btnDatPhongActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
