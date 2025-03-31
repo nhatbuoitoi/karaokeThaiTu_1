@@ -36,6 +36,7 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for (Tai_Khoan tk : listTK){
+            String vaiTroText = tk.isVAI_TRO() ? "Quản Lý" : "Nhân Viên";
             model.addRow(new Object[]{
                 tk.getMA_TAI_KHOAN(),
                 tk.getMAT_KHAU(),
@@ -43,7 +44,7 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
                 tk.getNAM_SINH(),
                 tk.getEMAIL(),
                 tk.getSDT(),
-                tk.isVAI_TRO()
+                vaiTroText
             });
         }
     }
@@ -103,6 +104,11 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
                 "Mã Tài Khoản", "Mật Khẩu", "Họ Tên", "Năm Sinh", "Số Điện Thoại", "Email", "Quyền Quản Lý"
             }
         ));
+        tblDanhSach.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDanhSachMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblDanhSach);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -407,6 +413,27 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         tkDAO.capNhatTaiKhoan(tk);
         fillTable();
     }//GEN-LAST:event_btnCapNhatThongTinActionPerformed
+
+    private void tblDanhSachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhSachMouseClicked
+        int soDongChon = tblDanhSach.getSelectedRow();
+        String so0 = tblDanhSach.getValueAt(soDongChon, 0).toString();
+        String so1 = tblDanhSach.getValueAt(soDongChon, 1).toString();
+        String so2 = tblDanhSach.getValueAt(soDongChon, 2).toString();
+        String so3 = tblDanhSach.getValueAt(soDongChon, 3).toString();
+        String so4 = tblDanhSach.getValueAt(soDongChon, 4).toString();
+        String so5 = tblDanhSach.getValueAt(soDongChon, 5).toString();
+        String so6 = tblDanhSach.getValueAt(soDongChon, 6).toString();
+        
+       
+        
+        txtMaTaiKhoan.setText(so0);
+        txtMatKhau.setText(so1);
+        txtHoTen.setText(so2);
+        txtNamSinh.setText(so3);
+        txtSDT.setText(so4);
+        txtEmail.setText(so5);
+        cboVaiTro.setSelectedItem(so6);
+    }//GEN-LAST:event_tblDanhSachMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
