@@ -42,33 +42,34 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="btnThongKe" min="-2" pref="192" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
                       <Group type="102" attributes="0">
                           <Component id="btnDangXuat" min="-2" pref="192" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lblTenNguoiDung" alignment="0" max="32767" attributes="0"/>
                               <Component id="btnKhachHang" alignment="0" max="32767" attributes="0"/>
                               <Component id="btnNhanVien" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
                                       <Component id="btnTrangChu" max="32767" attributes="0"/>
-                                      <Component id="btnPhongHat" pref="192" max="32767" attributes="0"/>
+                                      <Component id="btnPhongHat" max="32767" attributes="0"/>
                                       <Component id="btnDichVu" max="32767" attributes="0"/>
                                       <Component id="btnHoaDon" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="btnThongKe" min="-2" pref="192" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -77,10 +78,12 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="144" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblTenNguoiDung" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="7" max="32767" attributes="0"/>
                   <Component id="btnTrangChu" min="-2" pref="54" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnPhongHat" min="-2" pref="54" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnDichVu" min="-2" pref="54" max="-2" attributes="0"/>
@@ -92,7 +95,7 @@
                   <Component id="btnNhanVien" min="-2" pref="54" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnThongKe" min="-2" pref="54" max="-2" attributes="0"/>
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnDangXuat" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -193,6 +196,11 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDangXuatActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTenNguoiDung">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel2"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

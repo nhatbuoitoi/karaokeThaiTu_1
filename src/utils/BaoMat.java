@@ -16,7 +16,7 @@ import java.sql.SQLException;
  */
 public class BaoMat {
     public boolean DangNhap(String MATAIKHOAN,String MATKHAU){
-         String sql = "SELECT * FROM TAI_KHOAN "
+         String sql = "SELECT MA_TAI_KHOAN, HO_TEN, VAI_TRO  FROM TAI_KHOAN "
                 + "WHERE MA_TAI_KHOAN =? AND MAT_KHAU = ?";
             try (Connection con = KetNoiDB.getConnection(); 
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -24,11 +24,15 @@ public class BaoMat {
             ps.setString(1, MATAIKHOAN);  
             ps.setString(2, MATKHAU);  
             ResultSet rs = ps.executeQuery();
+            
             boolean result = rs.next();
             //lưu mã nhân viên và vai trò người đăng nhập
             if(result){
                 GlobalState.MA_TAI_KHOAN = rs.getString("MA_TAI_KHOAN");
+                GlobalState.HO_TEN = rs.getString("HO_TEN");
                 GlobalState.VAI_TRO = rs.getBoolean("VAI_TRO");
+                
+                
             }
             return result;
         } catch (SQLException e) {
