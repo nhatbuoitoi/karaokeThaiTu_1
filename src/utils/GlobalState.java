@@ -11,4 +11,5 @@ package utils;
 public class GlobalState {
     public static String MA_TAI_KHOAN = null;
     public static boolean VAI_TRO = false;
+    public static   String HO_TEN = null;
 }
