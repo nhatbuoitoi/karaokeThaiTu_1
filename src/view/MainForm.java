@@ -220,6 +220,7 @@ public class MainForm extends javax.swing.JFrame {
     }// GEN-LAST:event_btnHoaDonActionPerformed
 
     private void btnThongKeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnThongKeActionPerformed
+        showPanel(new ThongKeJPanel());
         if (!GlobalState.VAI_TRO) {
             JOptionPane.showMessageDialog(this, "Bạn Không Có Quyền Truy Cập Chức Năng Này");
             return;
