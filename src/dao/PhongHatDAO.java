@@ -24,7 +24,7 @@ public class PhongHatDAO {
             while(rs.next()){
             int MA_LOAI_PHONG = rs.getInt("MA_LOAI_PHONG");
             String TEN_LOAI_PHONG= rs.getString("TEN_LOAI_PHONG");
-            int GIA_TIEN = rs.getInt("GIA_TIEN");
+            double GIA_TIEN = rs.getDouble("GIA_TIEN");
             int MA_PHONG_HAT = rs.getInt("MA_PHONG_HAT");
             String TEN_PHONG_HAT = rs.getString("TEN_PHONG_HAT");
             int SO_NGUOI = rs.getInt("SO_NGUOI");

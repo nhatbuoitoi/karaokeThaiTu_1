@@ -464,7 +464,7 @@ public class QuanLyDichVu extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnTimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimActionPerformed
-      DefaultTableModel model = (DefaultTableModel) tblDanhSach.getModel();
+       DefaultTableModel model = (DefaultTableModel) tblDanhSach.getModel();
        DichVuDAO dvDAO = new DichVuDAO();
         try {
             int madichvu = Integer.parseInt(txtTimDV.getText()); // Lấy mã tài khoản từ JTextField

@@ -44,6 +44,7 @@ public class PhongHat extends javax.swing.JPanel {
                                         phongHatDTO.getMA_PHONG_HAT(),
                                         phongHatDTO.getTEN_LOAI_PHONG(),
                                         phongHatDTO.getTEN_PHONG_HAT(),
+                                        phongHatDTO.getGIA_TIEN(),
                                         trangThaiText
                         });
                 }
@@ -216,13 +217,13 @@ public class PhongHat extends javax.swing.JPanel {
 
         tblPhongHat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Mã Phòng Hát", "Tên Loại Phòng", "Tên Phòng Hát", "Trạng Thái"
+                "Mã Phòng Hát", "Tên Loại Phòng", "Tên Phòng Hát", "Giá Phòng Hát", "Trạng Thái"
             }
         ));
         tblPhongHat.addMouseListener(new java.awt.event.MouseAdapter() {
