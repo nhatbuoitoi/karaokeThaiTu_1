@@ -11,7 +11,7 @@ package dto;
 public class PhongHatDTO {
         int MA_LOAI_PHONG;
 	String TEN_LOAI_PHONG;
-	int GIA_TIEN;;
+	double GIA_TIEN;;
         int MA_PHONG_HAT;
 	String TEN_PHONG_HAT;
 	int SO_NGUOI;
@@ -20,7 +20,7 @@ public class PhongHatDTO {
     public PhongHatDTO() {
     }
 
-    public PhongHatDTO(int MA_LOAI_PHONG, String TEN_LOAI_PHONG, int GIA_TIEN, int MA_PHONG_HAT, String TEN_PHONG_HAT, int SO_NGUOI, boolean TRANG_THAI) {
+    public PhongHatDTO(int MA_LOAI_PHONG, String TEN_LOAI_PHONG, double GIA_TIEN, int MA_PHONG_HAT, String TEN_PHONG_HAT, int SO_NGUOI, boolean TRANG_THAI) {
         this.MA_LOAI_PHONG = MA_LOAI_PHONG;
         this.TEN_LOAI_PHONG = TEN_LOAI_PHONG;
         this.GIA_TIEN = GIA_TIEN;
@@ -38,7 +38,7 @@ public class PhongHatDTO {
         this.TEN_LOAI_PHONG = TEN_LOAI_PHONG;
     }
 
-    public void setGIA_TIEN(int GIA_TIEN) {
+    public void setGIA_TIEN(double GIA_TIEN) {
         this.GIA_TIEN = GIA_TIEN;
     }
 
@@ -66,7 +66,7 @@ public class PhongHatDTO {
         return TEN_LOAI_PHONG;
     }
 
-    public int getGIA_TIEN() {
+    public double getGIA_TIEN() {
         return GIA_TIEN;
     }
 

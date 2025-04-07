@@ -6,35 +6,37 @@ package dto;
 
 /**
  *
- * @author Tran Hong Kien
+ * @author admin
  */
-public class DichVuDanhMucDTO {
-        int MA_DICH_VU;
-	String TEN_DICH_VU;
-	double GIA;
-	String MIEU_TA;
-	int MA_DANH_MUC;
-        String TEN_DANH_MUC;
+public class CTDV_DV_DM_DTO {
+    int MA_CHI_TIET_DICH_VU;
+    int MA_DICH_VU;
+    int SO_LUONG;
+    double DON_GIA;
 
-    public DichVuDanhMucDTO() {
+    String TEN_DICH_VU;
+    double GIA;
+    
+    int MA_DANH_MUC;
+    String TEN_DANH_MUC;
+
+    public CTDV_DV_DM_DTO() {
     }
 
-    public DichVuDanhMucDTO(int MA_DICH_VU, String TEN_DICH_VU, double GIA, String MIEU_TA, String TEN_DANH_MUC) {
+    public CTDV_DV_DM_DTO(int MA_DICH_VU, int SO_LUONG, String TEN_DICH_VU, double GIA, String TEN_DANH_MUC) {
         this.MA_DICH_VU = MA_DICH_VU;
+        this.SO_LUONG = SO_LUONG;
         this.TEN_DICH_VU = TEN_DICH_VU;
         this.GIA = GIA;
-        this.MIEU_TA = MIEU_TA;
         this.TEN_DANH_MUC = TEN_DANH_MUC;
     }
-    
-    
-    public DichVuDanhMucDTO(int MA_DICH_VU, String TEN_DICH_VU, double GIA, String MIEU_TA, int MA_DANH_MUC, String TEN_DANH_MUC) {
-        this.MA_DICH_VU = MA_DICH_VU;
-        this.TEN_DICH_VU = TEN_DICH_VU;
-        this.GIA = GIA;
-        this.MIEU_TA = MIEU_TA;
-        this.MA_DANH_MUC = MA_DANH_MUC;
-        this.TEN_DANH_MUC = TEN_DANH_MUC;
+
+    public int getMA_CHI_TIET_DICH_VU() {
+        return MA_CHI_TIET_DICH_VU;
+    }
+
+    public void setMA_CHI_TIET_DICH_VU(int MA_CHI_TIET_DICH_VU) {
+        this.MA_CHI_TIET_DICH_VU = MA_CHI_TIET_DICH_VU;
     }
 
     public int getMA_DICH_VU() {
@@ -43,6 +45,22 @@ public class DichVuDanhMucDTO {
 
     public void setMA_DICH_VU(int MA_DICH_VU) {
         this.MA_DICH_VU = MA_DICH_VU;
+    }
+
+    public int getSO_LUONG() {
+        return SO_LUONG;
+    }
+
+    public void setSO_LUONG(int SO_LUONG) {
+        this.SO_LUONG = SO_LUONG;
+    }
+
+    public double getDON_GIA() {
+        return DON_GIA;
+    }
+
+    public void setDON_GIA(double DON_GIA) {
+        this.DON_GIA = DON_GIA;
     }
 
     public String getTEN_DICH_VU() {
@@ -61,14 +79,6 @@ public class DichVuDanhMucDTO {
         this.GIA = GIA;
     }
 
-    public String getMIEU_TA() {
-        return MIEU_TA;
-    }
-
-    public void setMIEU_TA(String MIEU_TA) {
-        this.MIEU_TA = MIEU_TA;
-    }
-
     public int getMA_DANH_MUC() {
         return MA_DANH_MUC;
     }
@@ -84,5 +94,6 @@ public class DichVuDanhMucDTO {
     public void setTEN_DANH_MUC(String TEN_DANH_MUC) {
         this.TEN_DANH_MUC = TEN_DANH_MUC;
     }
-        
+    
+    
 }

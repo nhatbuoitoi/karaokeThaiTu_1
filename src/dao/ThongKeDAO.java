@@ -5,6 +5,8 @@
 package dao;
 
 import db.KetNoiDB;
+import dto.CTDV_DV_DM_DTO;
+import dto.DichVuDanhMucDTO;
 import entity.Hoa_Don;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -61,4 +63,69 @@ public class ThongKeDAO {
             return 0;
         }
     }
+        public List<CTDV_DV_DM_DTO> getTop5DichVuBanChay() {
+    List<CTDV_DV_DM_DTO> dvdm = new ArrayList<>();
+    String sql = "SELECT TOP 5 DV.MA_DICH_VU, DM.TEN_DANH_MUC, DV.TEN_DICH_VU, "
+            + "DV.GIA, SUM(CTDV.SO_LUONG) AS TONG_SO_LUONG "
+            + "FROM CHI_TIET_DICH_VU CTDV "
+            + "JOIN DICH_VU DV ON CTDV.MA_DICH_VU = DV.MA_DICH_VU "
+            + "JOIN DANH_MUC DM ON DV.MA_DANH_MUC = DM.MA_DANH_MUC "
+            + "GROUP BY DV.MA_DICH_VU, DM.TEN_DANH_MUC, DV.TEN_DICH_VU, DV.GIA "
+            + "ORDER BY TONG_SO_LUONG DESC";
+    
+    try (Connection conn = KetNoiDB.getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql);
+         ResultSet rs = ps.executeQuery()) {
+        
+        while (rs.next()) {
+                int MA_DICH_VU = rs.getInt("MA_DICH_VU");
+                String TEN_DANH_MUC = rs.getString("TEN_DANH_MUC");
+                String TEN_DICH_VU = rs.getString("TEN_DICH_VU");
+                double GIA = rs.getDouble("GIA");
+                int TONG_SO_LUONG = rs.getInt("TONG_SO_LUONG");
+                
+                CTDV_DV_DM_DTO ctdv = new CTDV_DV_DM_DTO(MA_DICH_VU, TONG_SO_LUONG, TEN_DICH_VU, GIA, TEN_DANH_MUC);
+                dvdm.add(ctdv);
+        }
+        return dvdm;
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return dvdm;
+}
+        public List<CTDV_DV_DM_DTO> getDichVuByMaDichVu(int maDichVu) {
+    List<CTDV_DV_DM_DTO> dvdm = new ArrayList<>();
+    String sql = "SELECT DV.MA_DICH_VU, DM.TEN_DANH_MUC, DV.TEN_DICH_VU, DV.GIA, "
+               + "SUM(CTDV.SO_LUONG) AS TONG_SO_LUONG "
+               + "FROM CHI_TIET_DICH_VU CTDV "
+               + "JOIN DICH_VU DV ON CTDV.MA_DICH_VU = DV.MA_DICH_VU "
+               + "JOIN DANH_MUC DM ON DV.MA_DANH_MUC = DM.MA_DANH_MUC "
+               + "WHERE DV.MA_DICH_VU = ? "
+               + "GROUP BY DV.MA_DICH_VU, DM.TEN_DANH_MUC, DV.TEN_DICH_VU, DV.GIA "
+               + "ORDER BY TONG_SO_LUONG DESC";
+    
+    try (Connection conn = KetNoiDB.getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+        
+        ps.setInt(1, maDichVu);  
+        
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                int MA_DICH_VU = rs.getInt("MA_DICH_VU");
+                String TEN_DANH_MUC = rs.getString("TEN_DANH_MUC");
+                String TEN_DICH_VU = rs.getString("TEN_DICH_VU");
+                double GIA = rs.getDouble("GIA");
+                int TONG_SO_LUONG = rs.getInt("TONG_SO_LUONG");
+                
+                CTDV_DV_DM_DTO ctdv = new CTDV_DV_DM_DTO(MA_DICH_VU, TONG_SO_LUONG, TEN_DICH_VU, GIA, TEN_DANH_MUC);
+                dvdm.add(ctdv);
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return dvdm;
+}
+
+
 }
