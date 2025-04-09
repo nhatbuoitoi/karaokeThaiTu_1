@@ -9,6 +9,7 @@ import dao.QuanLyPhongHatDAO;
 import db.KetNoiDB;
 import dto.HD_CTTP_CTDV_PH_KH_TK_DTO;
 import dto.HoaDonChiTietTienPhongDTO;
+import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +19,7 @@ import java.util.List;
 import java.util.Locale;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -38,9 +40,15 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
         fillTable();
         fillTbl();
         setText();
+        startTimer();
         init();
     }
-
+    private void startTimer() {
+        new Timer(1000, (ActionEvent e) -> fillTable()).start();
+        String so5 = tblDanhSach.getValueAt(0, 8).toString();
+        txtTongTien.setText(so5);
+    }
+ 
     private XemChiTietPhongHatJFrame() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

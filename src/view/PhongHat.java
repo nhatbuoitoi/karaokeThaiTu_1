@@ -368,7 +368,7 @@ public class PhongHat extends javax.swing.JPanel {
         }// GEN-LAST:event_tblPhongHatMouseClicked
 
         private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed  
-                String check = (String) tblPhongHat.getValueAt(tblPhongHat.getSelectedRow(), 3);
+                String check = (String) tblPhongHat.getValueAt(tblPhongHat.getSelectedRow(), 4);
                 if (check.equals("Đang sử dụng")){
                     XemChiTietPhongHatJFrame xct = new XemChiTietPhongHatJFrame(layMaHoaDon, (int) tblPhongHat.getValueAt(tblPhongHat.getSelectedRow(), 0));
                     xct.setVisible(true);
