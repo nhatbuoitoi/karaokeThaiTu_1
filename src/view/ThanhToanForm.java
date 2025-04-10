@@ -31,6 +31,8 @@ public class ThanhToanForm extends javax.swing.JFrame {
         initComponents();
         fillCbo1();
         fillTable();
+        init();
+        this.setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE);
     }
     
     public void setTxtTong(){
@@ -479,4 +481,8 @@ public class ThanhToanForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtTienThua;
     private javax.swing.JTextField txtTongCOng;
     // End of variables declaration//GEN-END:variables
+
+    private void init() {
+        this.setLocationRelativeTo(null);
+    }
 }
