@@ -16,7 +16,10 @@ import java.sql.ResultSet;
 
 public class PhongHatDAO {
     public List<PhongHatDTO> readPhongHat(){
-        String sql = "SELECT * FROM LOAI_PHONG JOIN PHONG_HAT ON LOAI_PHONG.MA_LOAI_PHONG = PHONG_HAT.MA_LOAI_PHONG";
+        String sql = "SELECT LOAI_PHONG.MA_LOAI_PHONG, PHONG_HAT.MA_PHONG_HAT, PHONG_HAT.TEN_PHONG_HAT, LOAI_PHONG.TEN_LOAI_PHONG, LOAI_PHONG.GIA_TIEN, PHONG_HAT.TRANG_THAI " +
+                     "FROM PHONG_HAT " +
+                     "INNER JOIN LOAI_PHONG ON PHONG_HAT.MA_LOAI_PHONG = LOAI_PHONG.MA_LOAI_PHONG " +
+                     "ORDER BY LOAI_PHONG.GIA_TIEN DESC;";
         List<PhongHatDTO> phongHatDtoLst = new ArrayList<>();
         try (Connection con = KetNoiDB.getConnection();
                 PreparedStatement ps  = con.prepareStatement(sql)){
@@ -27,9 +30,8 @@ public class PhongHatDAO {
             double GIA_TIEN = rs.getDouble("GIA_TIEN");
             int MA_PHONG_HAT = rs.getInt("MA_PHONG_HAT");
             String TEN_PHONG_HAT = rs.getString("TEN_PHONG_HAT");
-            int SO_NGUOI = rs.getInt("SO_NGUOI");
             boolean TRANG_THAI = rs.getBoolean("TRANG_THAI");
-            PhongHatDTO phongHatDTO = new PhongHatDTO(MA_LOAI_PHONG, TEN_LOAI_PHONG, GIA_TIEN, MA_PHONG_HAT, TEN_PHONG_HAT, SO_NGUOI, TRANG_THAI);
+            PhongHatDTO phongHatDTO = new PhongHatDTO(MA_LOAI_PHONG, TEN_LOAI_PHONG, GIA_TIEN, MA_PHONG_HAT, TEN_PHONG_HAT, TRANG_THAI);
             phongHatDtoLst.add(phongHatDTO);
          }
             return  phongHatDtoLst;

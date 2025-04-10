@@ -30,6 +30,7 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
     QuanLyPhongHatDAO qlphDAO = new QuanLyPhongHatDAO();
     QuanLyHoaDonDAO qlhdDAO = new QuanLyHoaDonDAO();
     public int maPhongHat;
+    Timer timer = new Timer(1000, (ActionEvent e) -> chayTime());
     /**
      * Creates new form XemChiTietPhongHatJFrame
      */
@@ -40,15 +41,20 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
         fillTable();
         fillTbl();
         setText();
-        startTimer();
+        timer.start();
         init();
     }
-    private void startTimer() {
-        new Timer(1000, (ActionEvent e) -> fillTable()).start();
+//    private void startTimer() {
+//        timer = (1000, (ActionEvent e) -> chayTime() );
+//        timer.start();
+//    }
+    
+    public void chayTime(){
+        fillTable();
         String so5 = tblDanhSach.getValueAt(0, 8).toString();
         txtTongTien.setText(so5);
     }
- 
+    
     private XemChiTietPhongHatJFrame() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
@@ -59,8 +65,6 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
         tblDanhSach.setValueAt(tong, 0, 8);
         tblDanhSach.setValueAt(qlhdDAO.readGiaTienPhongHat(maHoaDon), 0, 6);
         tblDanhSach.setValueAt(qlhdDAO.readGiaTienDichVu(maHoaDon), 0, 7);
-        System.out.println(""+qlhdDAO.readGiaTienPhongHat(maHoaDon));
-        System.out.println(""+qlhdDAO.readGiaTienDichVu(maHoaDon));
     }
     
     public void fillTable(){
@@ -364,8 +368,6 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
     private void btnDichVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDichVuActionPerformed
         int i = (int) tblDanhSach.getValueAt(0,1);
         int n = (int) tblDanhSach.getValueAt(0,0);
-        System.out.println(""+tblDanhSach.getValueAt(0,1));
-        System.out.println(""+tblDanhSach.getValueAt(0,0));
         DichVuChoPhongJFrame dichVuPhongJframe = new DichVuChoPhongJFrame(i, n);
         dichVuPhongJframe.setVisible(true);
     }//GEN-LAST:event_btnDichVuActionPerformed
@@ -375,10 +377,9 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
         boolean ketQua = qlphDAO.traPhong((int) tblDanhSach.getValueAt(0, 1));
         
         if (ketQua) {
+            timer.stop();
             qlphDAO.capNhatDonGiaChiTietTienPhong((int) tblDanhSach.getValueAt(0, 0));
             qlphDAO.traTien((int) tblDanhSach.getValueAt(0, 0));
-            //qlphDAO.capNhatDonGiaChiTietTienPhong((int) tblDanhSach.getValueAt(0, 0));
-            //fillTable();
             dispose(); // Đóng form hiện tại
             MainForm.setDefaultLookAndFeelDecorated(true);
         } else {

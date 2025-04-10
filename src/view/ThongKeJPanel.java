@@ -8,6 +8,8 @@ import dao.ThongKeDAO;
 import db.KetNoiDB;
 import dto.CTDV_DV_DM_DTO;
 import entity.Hoa_Don;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -99,6 +101,7 @@ public class ThongKeJPanel extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         cboMaDichVu = new javax.swing.JComboBox<>();
+        txtTenDichVu = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDanhSach = new javax.swing.JTable();
@@ -142,6 +145,15 @@ public class ThongKeJPanel extends javax.swing.JPanel {
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255), 3));
+
+        txtNgayBD.setText("2025-04-09");
+        txtNgayBD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNgayBDActionPerformed(evt);
+            }
+        });
+
+        txtNgayKT.setText("2025-04-11");
 
         btnXacNhan.setText("Xác nhận Thống Kê");
         btnXacNhan.addActionListener(new java.awt.event.ActionListener() {
@@ -193,6 +205,13 @@ public class ThongKeJPanel extends javax.swing.JPanel {
         });
 
         cboMaDichVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboMaDichVu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboMaDichVuActionPerformed(evt);
+            }
+        });
+
+        txtTenDichVu.setEditable(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -227,7 +246,9 @@ public class ThongKeJPanel extends javax.swing.JPanel {
                             .addGap(266, 266, 266)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(cboMaDichVu, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cboMaDichVu, 0, 152, Short.MAX_VALUE)
+                            .addComponent(txtTenDichVu))
                         .addGap(28, 28, 28)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -271,8 +292,10 @@ public class ThongKeJPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel5)
                                 .addGap(34, 34, 34))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton2)
+                                    .addComponent(txtTenDichVu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(0, 6, Short.MAX_VALUE))
         );
@@ -497,6 +520,24 @@ public class ThongKeJPanel extends javax.swing.JPanel {
         fillTable();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void txtNgayBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNgayBDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNgayBDActionPerformed
+
+    private void cboMaDichVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMaDichVuActionPerformed
+        cboMaDichVu.addActionListener(new ActionListener() {
+        @Override
+            public void actionPerformed(ActionEvent evt) {
+                ThongKeDAO tkDAO = new ThongKeDAO();
+                Object selectedItem = cboMaDichVu.getSelectedItem();
+                if (selectedItem != null) {
+                    int i =  Integer.parseInt((String) cboMaDichVu.getSelectedItem());
+                    txtTenDichVu.setText(String.valueOf(tkDAO.timTenDichVuDuaTrenMa(i)));
+                }
+            }
+        });
+    }//GEN-LAST:event_cboMaDichVuActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnXacNhan;
@@ -529,6 +570,7 @@ public class ThongKeJPanel extends javax.swing.JPanel {
     private javax.swing.JTable tblDanhSachDichVu;
     private javax.swing.JTextField txtNgayBD;
     private javax.swing.JTextField txtNgayKT;
+    private javax.swing.JTextField txtTenDichVu;
     private javax.swing.JLabel txtTongdt;
     // End of variables declaration//GEN-END:variables
 }

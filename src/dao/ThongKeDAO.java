@@ -11,6 +11,7 @@ import entity.Hoa_Don;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -59,7 +60,7 @@ public class ThongKeDAO {
                 
             }   
             return 0;
-        } catch (Exception e) {
+        } catch (SQLException e) {
             return 0;
         }
     }
@@ -88,7 +89,7 @@ public class ThongKeDAO {
                 dvdm.add(ctdv);
         }
         return dvdm;
-    } catch (Exception e) {
+    } catch (SQLException e) {
         e.printStackTrace();
     }
     return dvdm;
@@ -121,11 +122,29 @@ public class ThongKeDAO {
                 dvdm.add(ctdv);
             }
         }
-    } catch (Exception e) {
+    } catch (SQLException e) {
         e.printStackTrace();
     }
     return dvdm;
 }
-
+    
+        public String timTenDichVuDuaTrenMa(int maDichVu){
+        String sql = "select TEN_DICH_VU from DICH_VU WHERE MA_DICH_VU = ?";
+        try (Connection con = KetNoiDB.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);) {
+            
+            ps.setInt(1, maDichVu);
+            
+            try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                return rs.getString("TEN_DICH_VU");
+            }
+        }    
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "0";
+    }
 
 }

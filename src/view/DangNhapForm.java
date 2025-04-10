@@ -46,7 +46,6 @@ public class DangNhapForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(930, 638));
         setMinimumSize(new java.awt.Dimension(930, 638));
-        setPreferredSize(new java.awt.Dimension(930, 638));
 
         txtMatKhau.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

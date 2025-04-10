@@ -14,19 +14,17 @@ public class PhongHatDTO {
 	double GIA_TIEN;;
         int MA_PHONG_HAT;
 	String TEN_PHONG_HAT;
-	int SO_NGUOI;
 	boolean TRANG_THAI;
 
     public PhongHatDTO() {
     }
 
-    public PhongHatDTO(int MA_LOAI_PHONG, String TEN_LOAI_PHONG, double GIA_TIEN, int MA_PHONG_HAT, String TEN_PHONG_HAT, int SO_NGUOI, boolean TRANG_THAI) {
+    public PhongHatDTO(int MA_LOAI_PHONG, String TEN_LOAI_PHONG, double GIA_TIEN, int MA_PHONG_HAT, String TEN_PHONG_HAT, boolean TRANG_THAI) {
         this.MA_LOAI_PHONG = MA_LOAI_PHONG;
         this.TEN_LOAI_PHONG = TEN_LOAI_PHONG;
         this.GIA_TIEN = GIA_TIEN;
         this.MA_PHONG_HAT = MA_PHONG_HAT;
         this.TEN_PHONG_HAT = TEN_PHONG_HAT;
-        this.SO_NGUOI = SO_NGUOI;
         this.TRANG_THAI = TRANG_THAI;
     }
 
@@ -50,9 +48,6 @@ public class PhongHatDTO {
         this.TEN_PHONG_HAT = TEN_PHONG_HAT;
     }
 
-    public void setSO_NGUOI(int SO_NGUOI) {
-        this.SO_NGUOI = SO_NGUOI;
-    }
 
     public void setTRANG_THAI(boolean TRANG_THAI) {
         this.TRANG_THAI = TRANG_THAI;
@@ -76,10 +71,6 @@ public class PhongHatDTO {
 
     public String getTEN_PHONG_HAT() {
         return TEN_PHONG_HAT;
-    }
-
-    public int getSO_NGUOI() {
-        return SO_NGUOI;
     }
 
     public boolean isTRANG_THAI() {

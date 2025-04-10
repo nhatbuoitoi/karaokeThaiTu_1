@@ -81,7 +81,6 @@ public class DatPhongDAO {
                 if (rs.next()) {
                     int trangThai = rs.getInt(1); 
                     if (trangThai == 1) {
-                        System.out.println("Phòng đang được sử dụng. Không thể đặt!");
                         return false;
                     }
                 }   
@@ -118,4 +117,44 @@ public class DatPhongDAO {
     }
     return false;
     }
+    
+    public int timPhongDuaTrenSDT(String SDT){
+        String sql = "SELECT MA_KHACH_HANG FROM KHACH_HANG where SDT = ?";
+        try (Connection con = KetNoiDB.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);) {
+            
+            ps.setString(1, SDT);
+            
+            try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt("MA_KHACH_HANG");
+            }
+        }
+            
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
+    public String timTenKhachHangDuaTrenMa(int maKhachHang){
+        String sql = "select TEN_KHACH_HANG from KHACH_HANG where MA_KHACH_HANG = ?";
+        try (Connection con = KetNoiDB.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);) {
+            
+            ps.setInt(1, maKhachHang);
+            
+            try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                return rs.getString("TEN_KHACH_HANG");
+            }
+        }    
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "0";
+    }
+    
 }

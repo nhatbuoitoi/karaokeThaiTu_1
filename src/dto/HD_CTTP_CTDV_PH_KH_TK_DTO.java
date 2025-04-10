@@ -31,7 +31,6 @@ public class HD_CTTP_CTDV_PH_KH_TK_DTO {
 	double DON_GIA_DICH_VU;
         
 	String TEN_PHONG_HAT;
-	int SO_NGUOI;
 	int MA_LOAI_PHONG;
 	boolean TRANG_THAI_PHONG;
         
@@ -215,13 +214,6 @@ public class HD_CTTP_CTDV_PH_KH_TK_DTO {
         this.TEN_PHONG_HAT = TEN_PHONG_HAT;
     }
 
-    public int getSO_NGUOI() {
-        return SO_NGUOI;
-    }
-
-    public void setSO_NGUOI(int SO_NGUOI) {
-        this.SO_NGUOI = SO_NGUOI;
-    }
 
     public int getMA_LOAI_PHONG() {
         return MA_LOAI_PHONG;

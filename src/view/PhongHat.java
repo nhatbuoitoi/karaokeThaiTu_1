@@ -8,12 +8,14 @@ import dao.PhongHatDAO;
 import dao.QuanLyPhongHatDAO;
 import db.KetNoiDB;
 import dto.PhongHatDTO;
+import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 
 import java.sql.PreparedStatement;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -27,12 +29,16 @@ public class PhongHat extends javax.swing.JPanel {
          */
         public PhongHat() {
                 initComponents();
+                Timer();
                 loadTable();
                 initCboTrangThai();
-                
-
         }
-
+        
+        public void Timer(){
+            new Timer(10000, (ActionEvent e) -> loadTable()).start();
+            
+        }
+        
         public void loadTable() {
                 PhongHatDAO phongHatDao = new PhongHatDAO();
                 List<PhongHatDTO> phongHatLst = phongHatDao.readPhongHat();
@@ -339,10 +345,14 @@ public class PhongHat extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDatPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatPhongActionPerformed
-
+                    String check = (String) tblPhongHat.getValueAt(tblPhongHat.getSelectedRow(), 4);
+                if (!check.equals("Đang sử dụng")){
                     DatPhongJFrame datPhongJframe = new DatPhongJFrame((int) tblPhongHat.getValueAt(tblPhongHat.getSelectedRow(), 0));
                     datPhongJframe.setVisible(true);
-                
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Phòng không có người sử dụng nên không thể đặt !");
+                }   
     }//GEN-LAST:event_btnDatPhongActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
