@@ -22,7 +22,11 @@ public class Quanlydanhmuc extends javax.swing.JFrame {
      */
     public Quanlydanhmuc() {
         initComponents();
+        this.setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE);
         loadTable();
+        init();
+        
+        
     }
       public void loadTable() {
         DanhMucDAO dmDAO = new DanhMucDAO();
@@ -75,6 +79,7 @@ public class Quanlydanhmuc extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         txtTimDm = new javax.swing.JTextField();
+        btnQuayLai = new javax.swing.JButton();
 
         jTextField3.setText("jTextField3");
 
@@ -168,6 +173,13 @@ public class Quanlydanhmuc extends javax.swing.JFrame {
             }
         });
 
+        btnQuayLai.setText("QUAY LẠI");
+        btnQuayLai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuayLaiActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -198,6 +210,9 @@ public class Quanlydanhmuc extends javax.swing.JFrame {
                     .addComponent(jButton4)
                     .addComponent(jButton3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btnQuayLai)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,7 +235,10 @@ public class Quanlydanhmuc extends javax.swing.JFrame {
                     .addComponent(jButton5)
                     .addComponent(txtTimDm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(btnQuayLai, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -345,6 +363,11 @@ public class Quanlydanhmuc extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTimDmActionPerformed
 
+    private void btnQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuayLaiActionPerformed
+        dispose(); // Đóng form hiện tại
+        MainForm.setDefaultLookAndFeelDecorated(true);
+    }//GEN-LAST:event_btnQuayLaiActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -381,6 +404,7 @@ public class Quanlydanhmuc extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnQuayLai;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -397,4 +421,8 @@ public class Quanlydanhmuc extends javax.swing.JFrame {
     private javax.swing.JTextField txtmaDanhMuc;
     private javax.swing.JTextField txttenDanhMuc;
     // End of variables declaration//GEN-END:variables
+
+    private void init() {
+         this.setLocationRelativeTo(null);
+    }
 }

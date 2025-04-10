@@ -39,6 +39,7 @@ public class DichVuChoPhongJFrame extends javax.swing.JFrame {
         fillTable1();
         setText();
         init();
+        this.setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE);
     }
 
     private DichVuChoPhongJFrame() {

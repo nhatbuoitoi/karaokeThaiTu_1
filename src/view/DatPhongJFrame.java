@@ -35,6 +35,7 @@ public class DatPhongJFrame extends javax.swing.JFrame {
         setTextMaPhong();
         fillCbo3();
         setText();
+        this.setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE);
         
     }
 
