@@ -436,6 +436,7 @@ public class QuanLyDichVu extends javax.swing.JPanel {
     }
     txtmaDichVu.requestFocus();
     loadTable();
+    loadma_danh_muc();
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void txtTimDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimDVActionPerformed
