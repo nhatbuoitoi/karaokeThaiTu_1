@@ -11,17 +11,15 @@ package entity;
 public class Phong_Hat {
         int MA_PHONG_HAT;
 	String TEN_PHONG_HAT;
-	int SO_NGUOI;
 	int MA_LOAI_PHONG;
 	boolean TRANG_THAI;
 
     public Phong_Hat() {
     }
 
-    public Phong_Hat(int MA_PHONG_HAT, String TEN_PHONG_HAT, int SO_NGUOI, int MA_LOAI_PHONG, boolean TRANG_THAI) {
+    public Phong_Hat(int MA_PHONG_HAT, String TEN_PHONG_HAT, int MA_LOAI_PHONG, boolean TRANG_THAI) {
         this.MA_PHONG_HAT = MA_PHONG_HAT;
         this.TEN_PHONG_HAT = TEN_PHONG_HAT;
-        this.SO_NGUOI = SO_NGUOI;
         this.MA_LOAI_PHONG = MA_LOAI_PHONG;
         this.TRANG_THAI = TRANG_THAI;
     }
@@ -40,14 +38,6 @@ public class Phong_Hat {
 
     public void setTEN_PHONG_HAT(String TEN_PHONG_HAT) {
         this.TEN_PHONG_HAT = TEN_PHONG_HAT;
-    }
-
-    public int getSO_NGUOI() {
-        return SO_NGUOI;
-    }
-
-    public void setSO_NGUOI(int SO_NGUOI) {
-        this.SO_NGUOI = SO_NGUOI;
     }
 
     public int getMA_LOAI_PHONG() {
