@@ -43,6 +43,7 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
         setText();
         timer.start();
         init();
+        this.setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE);
     }
 //    private void startTimer() {
 //        timer = (1000, (ActionEvent e) -> chayTime() );

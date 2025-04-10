@@ -28,6 +28,7 @@ public class HoaDonChiTietJFrame extends javax.swing.JFrame {
         init();
         fillTable1();
         fillTable2();
+        this.setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE);
     }
     
     private HoaDonChiTietJFrame() {
