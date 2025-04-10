@@ -60,6 +60,43 @@ public class QuanLyDichVu extends javax.swing.JPanel {
         }catch(SQLException e){
         }
      }
+    private boolean validateInput() {
+    // Kiểm tra nếu tất cả các trường đều trống
+    if (txtmaDichVu.getText().trim().isEmpty() && 
+        txttenDichVu.getText().trim().isEmpty() && 
+        txtdonGia.getText().trim().isEmpty() && 
+        txtmieuTa.getText().trim().isEmpty() && 
+        cbomadanhMuc.getSelectedIndex() == -1) {
+        
+        JOptionPane.showMessageDialog(this, "Không được để trống tất cả các trường!");
+        return false; // Không hợp lệ
+    }
+    
+    // Kiểm tra các trường khác
+    if (txtmaDichVu.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Mã dịch vụ không được để trống!");
+        return false;
+    }
+    if (txttenDichVu.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Tên dịch vụ không được để trống!");
+        return false;
+    }
+    if (txtdonGia.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Đơn giá không được để trống!");
+        return false;
+    }
+    if (txtmieuTa.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Mô tả không được để trống!");
+        return false;
+    }
+    if (cbomadanhMuc.getSelectedIndex() == -1) {
+        JOptionPane.showMessageDialog(this, "Vui lòng chọn danh mục!");
+        return false;
+    }
+    
+    return true; // Tất cả hợp lệ
+}
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -358,7 +395,10 @@ public class QuanLyDichVu extends javax.swing.JPanel {
     }//GEN-LAST:event_txtmieuTaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-       String maDichVu = txtmaDichVu.getText();
+       if (!validateInput()) {
+        return; // Nếu validation thất bại, không thực hiện hành động tiếp theo
+    }
+        String maDichVu = txtmaDichVu.getText();
         
         DichVuDAO DvDAO = new DichVuDAO();
         int ketQua = DvDAO.deleteDichVu(maDichVu);
@@ -404,7 +444,9 @@ public class QuanLyDichVu extends javax.swing.JPanel {
     }//GEN-LAST:event_tblDanhSachMouseClicked
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        
+        if (!validateInput()) {
+        return; // Nếu validation thất bại, không thực hiện hành động tiếp theo
+    }
         
         int ma_dich_vu = Integer.parseInt(txtmaDichVu.getText());
         String ten_dich_vu = txttenDichVu.getText();
@@ -444,6 +486,9 @@ public class QuanLyDichVu extends javax.swing.JPanel {
     }//GEN-LAST:event_txtTimDVActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+        if (!validateInput()) {
+        return; // Nếu validation thất bại, không thực hiện hành động tiếp theo
+    }
         int ma_dich_vu = Integer.parseInt(txtmaDichVu.getText());
         String ten_dich_vu = txttenDichVu.getText();
         double gia = Double.parseDouble(txtdonGia.getText());
