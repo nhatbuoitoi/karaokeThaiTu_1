@@ -149,6 +149,11 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
         jButton6.setBackground(new java.awt.Color(0, 255, 204));
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton6.setText("Làm mới");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setBackground(new java.awt.Color(0, 255, 204));
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -312,12 +317,51 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
         tt.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+txtMaHoaDon.setText("");
+txtTenKhachHang.setText("");
+txtTenNhanVien.setText("");
+txtTongTien.setText("");
+txtNgayTao.setText("");
+txtTrangThai.setText("");
+fillTable();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton5ActionPerformed
         HoaDonChiTietJFrame hoaDonChiTietJFrame = new HoaDonChiTietJFrame((int) tblHoaDon.getValueAt(tblHoaDon.getSelectedRow(), 0));
         hoaDonChiTietJFrame.setVisible(true);
     }// GEN-LAST:event_jButton5ActionPerformed
 
     private void btnTimActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnTimActionPerformed
+DefaultTableModel model = (DefaultTableModel) tblHoaDon.getModel();
+QuanLyHoaDonDAO hdDAO = new QuanLyHoaDonDAO();
+
+try {
+    int mahoadon = Integer.parseInt(txtTimHoaDon.getText().trim()); // Lấy mã hóa đơn từ ô nhập
+
+    // Gọi DAO để tìm hóa đơn theo mã
+HD_CTTP_CTDV_PH_KH_TK_DTO hdDTO= hdDAO.timHoaDon(mahoadon);
+
+    model.setRowCount(0); // Xóa tất cả dữ liệu cũ trong bảng
+
+    if (hdDTO != null) {
+        // Thêm 1 dòng dữ liệu hóa đơn vào bảng
+        model.addRow(new Object[]{
+            hdDTO.getMA_HOA_DON(),
+            hdDTO.getTEN_KHACH_HANG(),  
+            hdDTO.getHO_TEN(),            
+            hdDTO.getTONG_TIEN(),        
+            hdDTO.getNGAY_TAO(),         
+            hdDTO.isTRANG_THAI_THANH_TOAN() ? "Đã thanh toán" : "Chưa thanh toán"
+        });
+    } else {
+        // Nếu không tìm thấy hóa đơn
+        JOptionPane.showMessageDialog(this, "Không tìm thấy hóa đơn với mã: " + mahoadon);
+    }
+
+} catch (NumberFormatException ex) {
+    JOptionPane.showMessageDialog(this, "Vui lòng nhập mã hóa đơn hợp lệ.");
+}
 
     }// GEN-LAST:event_btnTimActionPerformed
 

@@ -12,6 +12,7 @@ import entity.Hoa_Don;
 import java.sql.*;
 import java.util.*;
 
+
 public class QuanLyHoaDonDAO {
     public List<Hoa_Don> loadHoaDon(){
         String sql = "SELECT * FROM HOA_DON";
@@ -217,5 +218,36 @@ public class QuanLyHoaDonDAO {
             return 0;
         }
     }
-   
+ 
+
+
+public HD_CTTP_CTDV_PH_KH_TK_DTO timHoaDon(int mahd){
+                String sql = "SELECT  * FROM HOA_DON "
+                + "JOIN KHACH_HANG ON HOA_DON.MA_KHACH_HANG = KHACH_HANG.MA_KHACH_HANG "
+                + "JOIN TAI_KHOAN ON HOA_DON.MA_TAI_KHOAN = TAI_KHOAN.MA_TAI_KHOAN  "
+                +"WHERE MA_HOA_DON =?";
+        
+        HD_CTTP_CTDV_PH_KH_TK_DTO hd = null;
+        try (Connection con = KetNoiDB.getConnection();
+         PreparedStatement ps = con.prepareStatement(sql)) {
+        
+        ps.setInt(1, mahd); 
+
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+                int MA_HOA_DON = rs.getInt("MA_HOA_DON");
+                String TEN_KHACH_HANG = rs.getString("TEN_KHACH_HANG");
+                String HO_TEN = rs.getString("HO_TEN");
+                double TONG_TIEN = rs.getDouble("TONG_TIEN");
+                java.util.Date NGAY_TAO = rs.getDate("NGAY_TAO");
+                boolean TRANG_THAI_THANH_TOAN = rs.getBoolean("TRANG_THAI_THANH_TOAN");
+                hd = new HD_CTTP_CTDV_PH_KH_TK_DTO(MA_HOA_DON, TRANG_THAI_THANH_TOAN, TONG_TIEN, NGAY_TAO, TEN_KHACH_HANG, HO_TEN);
+}
+
+    } catch (SQLException e) {
+        e.printStackTrace(); 
+    }
+    return hd;
+    }
 }
