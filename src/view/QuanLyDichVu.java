@@ -60,42 +60,49 @@ public class QuanLyDichVu extends javax.swing.JPanel {
         }catch(SQLException e){
         }
      }
-    private boolean validateInput() {
-    // Kiểm tra nếu tất cả các trường đều trống
-    if (txtmaDichVu.getText().trim().isEmpty() && 
-        txttenDichVu.getText().trim().isEmpty() && 
-        txtdonGia.getText().trim().isEmpty() && 
-        txtmieuTa.getText().trim().isEmpty() && 
-        cbomadanhMuc.getSelectedIndex() == -1) {
-        
-        JOptionPane.showMessageDialog(this, "Không được để trống tất cả các trường!");
-        return false; // Không hợp lệ
-    }
-    
-    // Kiểm tra các trường khác
-    if (txtmaDichVu.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Mã dịch vụ không được để trống!");
+private boolean validateInput() {
+    // Kiểm tra txttenDichVu: không cho phép nhập số
+    String tenDichVu = txttenDichVu.getText();
+    if (tenDichVu.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Tên dịch vụ không được để trống.");
         return false;
     }
-    if (txttenDichVu.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Tên dịch vụ không được để trống!");
+    for (int i = 0; i < tenDichVu.length(); i++) {
+        if (Character.isDigit(tenDichVu.charAt(i))) {
+            JOptionPane.showMessageDialog(this, "Tên dịch vụ không được chứa số.");
+            return false;
+        }
+    }
+
+    // Kiểm tra txtdonGia: chỉ cho phép nhập số và dấu chấm
+    String donGiaText = txtdonGia.getText();
+    if (donGiaText.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Đơn giá không được để trống.");
         return false;
     }
-    if (txtdonGia.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Đơn giá không được để trống!");
+    try {
+        Double.parseDouble(donGiaText);
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Đơn giá phải là một số hợp lệ.");
         return false;
     }
-    if (txtmieuTa.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Mô tả không được để trống!");
+
+    // Kiểm tra txtmaDichVu: chỉ cho phép nhập số
+    String maDichVuText = txtmaDichVu.getText();
+    if (maDichVuText.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Mã dịch vụ không được để trống.");
         return false;
     }
-    if (cbomadanhMuc.getSelectedIndex() == -1) {
-        JOptionPane.showMessageDialog(this, "Vui lòng chọn danh mục!");
+    try {
+        Integer.parseInt(maDichVuText);
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Mã dịch vụ phải là một số.");
         return false;
     }
-    
-    return true; // Tất cả hợp lệ
+
+    return true; // Nếu tất cả kiểm tra đều hợp lệ
 }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -510,7 +517,11 @@ public class QuanLyDichVu extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnTimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimActionPerformed
-       DefaultTableModel model = (DefaultTableModel) tblDanhSach.getModel();
+        if (!validateInput()) {
+        return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tblDanhSach.getModel();
        DichVuDAO dvDAO = new DichVuDAO();
         try {
             int madichvu = Integer.parseInt(txtTimDV.getText()); // Lấy mã tài khoản từ JTextField
