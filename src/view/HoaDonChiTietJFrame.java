@@ -61,6 +61,7 @@ public class HoaDonChiTietJFrame extends javax.swing.JFrame {
             Object[] row = {
                 hd.getMA_CHI_TIET_DICH_VU(),
                 hd.getMA_DICH_VU(),
+                hd.getTEN_DICH_VU(),
                 hd.getSO_LUONG(),
                 hd.getDON_GIA()
             };
@@ -127,13 +128,13 @@ public class HoaDonChiTietJFrame extends javax.swing.JFrame {
 
         tblDanhSachDichVu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Mã CTDV", "Mã Dịch Vụ", "Số Lượng", "Đơn Giá"
+                "Mã CTDV", "Tên Dịch Vụ", "Mã Dịch Vụ", "Số Lượng", "Đơn Giá"
             }
         ));
         jScrollPane2.setViewportView(tblDanhSachDichVu);
