@@ -381,6 +381,7 @@ public class XemChiTietPhongHatJFrame extends javax.swing.JFrame {
             timer.stop();
             qlphDAO.capNhatDonGiaChiTietTienPhong((int) tblDanhSach.getValueAt(0, 0));
             qlphDAO.traTien((int) tblDanhSach.getValueAt(0, 0));
+            timer.stop();
             dispose(); // Đóng form hiện tại
             MainForm.setDefaultLookAndFeelDecorated(true);
         } else {

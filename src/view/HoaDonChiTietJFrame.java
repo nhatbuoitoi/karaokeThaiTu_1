@@ -135,7 +135,7 @@ public class HoaDonChiTietJFrame extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Mã CTDV", "Tên Dịch Vụ", "Mã Dịch Vụ", "Số Lượng", "Đơn Giá"
+                "Mã CTDV", "Mã Dịch Vụ", "Tên Dịch Vụ", "Số Lượng", "Đơn Giá"
             }
         ));
         jScrollPane2.setViewportView(tblDanhSachDichVu);

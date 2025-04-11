@@ -369,8 +369,16 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        ThanhToanForm tt = new ThanhToanForm();
-        tt.setVisible(true);
+
+        String check = (String) tblHoaDon.getValueAt(tblHoaDon.getSelectedRow(), 5);
+                if (!check.equals("Đã Thanh Toán")){
+                    
+                            ThanhToanForm tt = new ThanhToanForm();
+                            tt.setVisible(true);
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Hóa Đơn Này Đã Được Thanh Toán!");
+                }   
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
