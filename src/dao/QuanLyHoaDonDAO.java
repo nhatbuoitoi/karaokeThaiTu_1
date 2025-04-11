@@ -177,7 +177,7 @@ public class QuanLyHoaDonDAO {
     }
     
     public List<HoaDonChiTietDichVuDTO> readChiTietDichVu(int maHoaDon){
-        String sql = "SELECT * FROM CHI_TIET_DICH_VU WHERE MA_HOA_DON = ?";
+        String sql = "SELECT * FROM CHI_TIET_DICH_VU JOIN DICH_VU ON CHI_TIET_DICH_VU.MA_DICH_VU = DICH_VU.MA_DICH_VU WHERE MA_HOA_DON = ?";
         List<HoaDonChiTietDichVuDTO> list = new ArrayList<>();
         try(Connection con = KetNoiDB.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);){
@@ -188,10 +188,11 @@ public class QuanLyHoaDonDAO {
             while(rs.next()){
                 int MA_CHI_TIET_DICH_VU = rs.getInt("MA_CHI_TIET_DICH_VU");
                 int MA_DICH_VU = rs.getInt("MA_DICH_VU");
+                String TEN_DICH_VU = rs.getString("TEN_DICH_VU");
                 int SO_LUONG = rs.getInt("SO_LUONG");
                 double DON_GIA = rs.getDouble("DON_GIA");
                 
-                HoaDonChiTietDichVuDTO hd = new HoaDonChiTietDichVuDTO(MA_CHI_TIET_DICH_VU, MA_DICH_VU, SO_LUONG, DON_GIA);
+                HoaDonChiTietDichVuDTO hd = new HoaDonChiTietDichVuDTO(MA_CHI_TIET_DICH_VU, MA_DICH_VU, TEN_DICH_VU, SO_LUONG, DON_GIA);
                 list.add(hd);
             }
             return list;

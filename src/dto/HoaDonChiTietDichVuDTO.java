@@ -31,6 +31,16 @@ public class HoaDonChiTietDichVuDTO {
     public HoaDonChiTietDichVuDTO() {
     }
 
+    public HoaDonChiTietDichVuDTO(int MA_CHI_TIET_DICH_VU, int MA_DICH_VU, String TEN_DICH_VU, int SO_LUONG, double DON_GIA) {
+        this.MA_CHI_TIET_DICH_VU = MA_CHI_TIET_DICH_VU;
+        this.MA_DICH_VU = MA_DICH_VU;
+        this.TEN_DICH_VU = TEN_DICH_VU;
+        this.SO_LUONG = SO_LUONG;
+        this.DON_GIA = DON_GIA;
+    }
+    
+    
+    
     public HoaDonChiTietDichVuDTO(int MA_CHI_TIET_DICH_VU, int MA_DICH_VU, int SO_LUONG, double DON_GIA) {
         this.MA_CHI_TIET_DICH_VU = MA_CHI_TIET_DICH_VU;
         this.MA_DICH_VU = MA_DICH_VU;
