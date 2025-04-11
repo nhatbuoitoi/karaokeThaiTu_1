@@ -44,6 +44,62 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
 
         }
     }
+    private boolean validateForm() {
+    // Validate mã hóa đơn
+    try {
+        Integer.parseInt(txtMaHoaDon.getText().trim());
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Mã hóa đơn phải là số nguyên.");
+        txtMaHoaDon.requestFocus();
+        return false;
+    }
+
+    // Validate tên khách hàng
+    if (txtTenKhachHang.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Tên khách hàng không được để trống.");
+        txtTenKhachHang.requestFocus();
+        return false;
+    }
+
+    // Validate tên nhân viên
+    if (txtTenNhanVien.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Tên nhân viên không được để trống.");
+        txtTenNhanVien.requestFocus();
+        return false;
+    }
+
+    // Validate tổng tiền
+    try {
+        double tongTien = Double.parseDouble(txtTongTien.getText().trim());
+        if (tongTien < 0) {
+            JOptionPane.showMessageDialog(this, "Tổng tiền phải là số dương.");
+            txtTongTien.requestFocus();
+            return false;
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Tổng tiền phải là số.");
+        txtTongTien.requestFocus();
+        return false;
+    }
+
+    // Validate ngày tạo (tùy chọn – nếu muốn kiểm định ngày chuẩn)
+    if (txtNgayTao.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Ngày tạo không được để trống.");
+        txtNgayTao.requestFocus();
+        return false;
+    }
+
+    // Validate trạng thái thanh toán
+    String trangThai = txtTrangThai.getText().trim().toLowerCase();
+    if (!(trangThai.equals("đã thanh toán") || trangThai.equals("chưa thanh toán"))) {
+        JOptionPane.showMessageDialog(this, "Trạng thái thanh toán chỉ được là 'Đã thanh toán' hoặc 'Chưa thanh toán'.");
+        txtTrangThai.requestFocus();
+        return false;
+    }
+
+    return true; // Nếu tất cả điều kiện hợp lệ
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -328,12 +384,20 @@ fillTable();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton5ActionPerformed
+        if (!validateForm()) {
+    return; // Dừng lại nếu dữ liệu không hợp lệ
+}
+
         HoaDonChiTietJFrame hoaDonChiTietJFrame = new HoaDonChiTietJFrame((int) tblHoaDon.getValueAt(tblHoaDon.getSelectedRow(), 0));
         hoaDonChiTietJFrame.setVisible(true);
     }// GEN-LAST:event_jButton5ActionPerformed
 
     private void btnTimActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnTimActionPerformed
-DefaultTableModel model = (DefaultTableModel) tblHoaDon.getModel();
+if (!validateForm()) {
+    return; // Dừng lại nếu dữ liệu không hợp lệ
+}
+
+        DefaultTableModel model = (DefaultTableModel) tblHoaDon.getModel();
 QuanLyHoaDonDAO hdDAO = new QuanLyHoaDonDAO();
 
 try {
