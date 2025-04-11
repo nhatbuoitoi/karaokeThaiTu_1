@@ -389,18 +389,23 @@ public class ThanhToanForm extends javax.swing.JFrame {
     }//GEN-LAST:event_cboMaHoaDonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(!txtTienNhan.getText().isEmpty()){
         double i = Double.parseDouble(txtTienNhan.getText());
-        if (i > 0){
+        
             if (i > tong){
                     ThanhToanDAO ttDAO = new ThanhToanDAO();
                     ttDAO.thanhToan(maHoaDon);
-                    fillCbo1();}
+                    fillCbo1();
+                    JOptionPane.showMessageDialog(this, "Thanh Toán Thành Công.\nTổng Tiền Phải Trả: "+txtTongCOng.getText()+"\nSố Tiền Nhận:" +txtTienNhan.getText() +"\nTiền Thừa Là:" +txtTienThua.getText());
+                    dispose();
+            }
             else{
                 JOptionPane.showMessageDialog(this, "Giá tiền nhập phải cao hơn số tiền phải trả.");
+                txtTienThua.setText("");
             }
         }
-        else {
-            JOptionPane.showMessageDialog(this, "Giá tiền nhập thấp hoặc bằng 0 VND.");
+        else{
+            JOptionPane.showMessageDialog(this, "Tiền Nhận Không Được Để Trống, Vui Lòng Nhập Số Tiền");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
